@@ -9,4 +9,63 @@ html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: 
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0); overflow: hidden;}
 
 
+$offWhite: #FFFFFF;
+$rustRed: #BF2603;
+$dustyOrange: #FF8327;
+$black: #111010;
+$darkRed: #220303;
+
+body {
+    // background-color: $black;
+}
+
+.container {
+    width: 90%;
+    margin: 100px auto;
+}
+
+
+span {
+    width: 100px;
+    height: 100px;
+    background-color: palevioletred;
+    // color: white;
+}
+
+div.box {
+    height: 100px;
+    width: 100px;
+    border: solid;
+    display: inline-block;
+}
+
+button {
+    margin-top: 30px;
+    width: 100px;
+    height: 100px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

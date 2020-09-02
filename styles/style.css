@@ -234,3 +234,27 @@ html {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
+.container {
+  width: 90%;
+  margin: 100px auto;
+}
+
+span {
+  width: 100px;
+  height: 100px;
+  background-color: palevioletred;
+}
+
+div.box {
+  height: 100px;
+  width: 100px;
+  border: solid;
+  display: inline-block;
+}
+
+button {
+  margin-top: 30px;
+  width: 100px;
+  height: 100px;
+}
