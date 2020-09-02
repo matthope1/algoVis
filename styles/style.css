@@ -251,6 +251,8 @@ div.box {
   width: 100px;
   border: solid;
   display: inline-block;
+  text-align: center;
+  font-size: 30px;
 }
 
 button {
