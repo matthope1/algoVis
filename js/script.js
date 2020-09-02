@@ -48,24 +48,39 @@ $(document).ready(function(){
     //    console.log("box created..")
     // });
 
-    $("button").click(function() {
+    $(".create_boxes").click(function() {
         let box;
 
         for (let i = 0; i < arr.length; i ++) {
             box = document.createElement("div");
-            box.className = `box box-${arr.data[i]}`;
-            console.log(`box box-${arr.data[i]}`);
+            box.className = `box box-${i}`;
+            // console.log(`box box-${arr.data[i]}`);
             box.innerHTML = arr.data[i];
 
             $(".container").append(box); 
             // we only want to allow the user to make the array once 
-            $("button").prop('disabled',true);
-            
+            $(".create_boxes").prop('disabled',true);
         }
-        // if there reallly is a box3, its background will be pink.
-        console.log("this happens");
-        console.log("this also happens");
     });
+
+    $(".add_item").click(function () {
+        let box;
+
+        let boxToBeAdded = prompt("what number to do you want to add to your array");
+
+        console.log("box to be added: " + boxToBeAdded);
+
+        box = document.createElement("div");
+        box.className = `box box-${arr.length}`;
+
+        box.innerHTML = boxToBeAdded;
+
+        $(".container").append(box);
+
+        arr.push(boxToBeAdded);
+        console.log("pushing item onto array..");
+        console.log(arr);
+    })
 
 
    // let num = 6;

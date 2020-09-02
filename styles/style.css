@@ -238,6 +238,8 @@ html {
 .container {
   width: 90%;
   margin: 100px auto;
+  border: solid;
+  border-color: blue;
 }
 
 span {
@@ -256,7 +258,7 @@ div.box {
 }
 
 button {
-  margin-top: 30px;
   width: 100px;
   height: 100px;
+  display: inline-block;
 }

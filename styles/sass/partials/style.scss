@@ -22,6 +22,8 @@ body {
 .container {
     width: 90%;
     margin: 100px auto;
+    border: solid;
+    border-color: blue;
 }
 
 
@@ -42,9 +44,9 @@ div.box {
 }
 
 button {
-    margin-top: 30px;
     width: 100px;
     height: 100px;
+    display: inline-block;
 }
 
 // .box-3 {
