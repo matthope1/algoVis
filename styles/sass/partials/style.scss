@@ -15,9 +15,6 @@ $dustyOrange: #FF8327;
 $black: #111010;
 $darkRed: #220303;
 
-body {
-    // background-color: $black;
-}
 
 .container {
     width: 90%;
@@ -34,11 +31,15 @@ span {
     // color: white;
 }
 
+
+div {
+    display: inline-block;
+}
+
 div.box {
     height: 100px;
     width: 100px;
     border: solid;
-    display: inline-block;
     text-align: center;
     font-size: 30px;
 }
@@ -47,11 +48,27 @@ button {
     width: 100px;
     height: 100px;
     display: inline-block;
+    background-color: red;
 }
 
-// .box-3 {
-//     background-color: pink;
-// }
+
+.red {
+    background-color: red;
+}
+
+.green-box {
+    height: 100px;
+    width: 100px;
+    background-color: green;
+    display: block;
+}
+
+p {
+    height: 100px;
+    width: 100px;
+    background-color: red;
+}
+
 
 
 
