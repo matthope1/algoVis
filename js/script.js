@@ -8,8 +8,8 @@ class array {
         return data[index];
     }
 
-    append(value){
-        this.data.push(value);
+    append(key){
+        this.data.push(key);
         this.length++;
     }
     
@@ -19,12 +19,12 @@ class array {
         }
     }
 
-    linearSearch(value) {
+    linearSearch(key) {
 
         let index = -1;
 
         for (let i = 0; i < this.length; i++ ) {
-            if (this.data[i] == value) {
+            if (this.data[i] == key) {
                 index = i;
                 break;
             }
@@ -32,11 +32,44 @@ class array {
         return index;
     }
 
+    binarySearch(key) {
+
+        let l = 0;
+        let r = this.length - 1;
+
+        let mid;
+        while (l <= r) {
+
+            mid = Math.round((l + r) / 2);
+
+            if (this.data[mid] == key) {
+                return mid;
+            }
+            else if(this.data[mid] < key) {
+                l = mid + 1;
+            }
+            else {
+                r = mid - 1;
+            }
+        }
+
+        // we didnt find the key return not found
+        return -1;
+    }
+
+    sort() {
+        this.data.sort(function(a,b){return a - b});
+    }
+
 
     display(){
         console.log(this.data);
     }
 
+}
+
+function iOnlyPrint() {
+    console.log("I only print");
 }
 
 
@@ -48,18 +81,37 @@ $(document).ready(function(){
 
     let arr = new array();
 
-    arr.append(3);
-    arr.append(5);
-    arr.append(7);
-    arr.append(8);
+    // append 10 random numbers in the range 0 - 10
+    let i = 0;
+
+    while (i < 10) {
+        let randomNum = Math.floor(Math.random() * 101);
+
+        if(arr.linearSearch(randomNum) == -1) {
+            arr.append(randomNum);
+            i++;
+        }
+        else {
+            continue;
+        }
+    }
+
+    
+    // arr.append(3);
+    // arr.append(5);
+    // arr.append(7);
+    // arr.append(8);
+
+    // sort numbers
+    arr.sort();
+    arr.display();
+
+    console.log(arr.binarySearch(7));
 
     console.log("this happens");
 
-    $(".click-green").on('click', function() {
+    $(".click-green").on('click', iOnlyPrint);
 
-        console.log("green's button was clicked...");
-        $(".green-box").css("background-color", "blue");
-    });
 
 
     $(".create_boxes").on ('click',function() {

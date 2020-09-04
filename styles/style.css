@@ -259,10 +259,13 @@ header .header-heading {
 }
 
 div.box {
-  height: 100px;
-  width: 100px;
+  height: 70px;
+  width: 70px;
+  border: solid;
   text-align: center;
   font-size: 30px;
+  border-color: white;
+  margin: 10px;
 }
 
 .box {
@@ -278,6 +281,7 @@ button {
 }
 
 section {
+  padding: 30px;
   border: solid;
   border-color: white;
 }
