@@ -8,65 +8,78 @@ html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: 
 
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0); overflow: hidden;}
 
+//colours
+$black: #0B0C10;
+$darkBlue: #1F2833;
+$medBlue: #C5C6C7;
+$neonBlue: #66FCF1;
+$medBlue: #45A29E;
 
-$offWhite: #FFFFFF;
-$rustRed: #BF2603;
-$dustyOrange: #FF8327;
-$black: #111010;
-$darkRed: #220303;
+//fonts
+$primay: 'B612', sans-serif;
 
+body {
+    background-color: $black;
+}
 
 .container {
     width: 90%;
-    margin: 100px auto;
-    border: solid;
-    border-color: blue;
+    margin: 0 auto;
+    // border: solid;
+    // border-color: blue;
+
+    div {
+        display: inline-block;
+    }
 }
 
 
-span {
-    width: 100px;
-    height: 100px;
-    background-color: palevioletred;
-    // color: white;
+header {
+
+    text-align: center;
+    .header-heading {
+        color: $neonBlue;
+        font-family: $primay;
+        font-size: 45px;
+    }
 }
 
-
-div {
-    display: inline-block;
-}
 
 div.box {
     height: 100px;
     width: 100px;
-    border: solid;
+    // border: solid;
     text-align: center;
     font-size: 30px;
+    // border-color: pink;
+}
+
+.box {
+    background-color: $medBlue;
+    border-color: pink;
 }
 
 button {
     width: 100px;
     height: 100px;
     display: inline-block;
-    background-color: red;
+    background-color: $medBlue;
 }
 
+section {
+    border: solid;
+    border-color: white; 
+}
 
 .red {
-    background-color: red;
+    background-color: $medBlue;
 }
 
-.green-box {
-    height: 100px;
-    width: 100px;
-    background-color: green;
-    display: block;
-}
 
 p {
     height: 100px;
     width: 100px;
-    background-color: red;
+    background-color: $medBlue;
 }
 
 

@@ -235,51 +235,59 @@ html {
   overflow: hidden;
 }
 
+body {
+  background-color: #0B0C10;
+}
+
 .container {
   width: 90%;
-  margin: 100px auto;
-  border: solid;
-  border-color: blue;
+  margin: 0 auto;
 }
 
-span {
-  width: 100px;
-  height: 100px;
-  background-color: palevioletred;
-}
-
-div {
+.container div {
   display: inline-block;
+}
+
+header {
+  text-align: center;
+}
+
+header .header-heading {
+  color: #66FCF1;
+  font-family: "B612", sans-serif;
+  font-size: 45px;
 }
 
 div.box {
   height: 100px;
   width: 100px;
-  border: solid;
   text-align: center;
   font-size: 30px;
+}
+
+.box {
+  background-color: #45A29E;
+  border-color: pink;
 }
 
 button {
   width: 100px;
   height: 100px;
   display: inline-block;
-  background-color: red;
+  background-color: #45A29E;
+}
+
+section {
+  border: solid;
+  border-color: white;
 }
 
 .red {
-  background-color: red;
-}
-
-.green-box {
-  height: 100px;
-  width: 100px;
-  background-color: green;
-  display: block;
+  background-color: #45A29E;
 }
 
 p {
   height: 100px;
   width: 100px;
-  background-color: red;
+  background-color: #45A29E;
 }

@@ -62,7 +62,7 @@ $(document).ready(function(){
     });
 
 
-    $(".create_boxes").click(function() {
+    $(".create_boxes").on ('click',function() {
         let box;
 
         for (let i = 0; i < arr.length; i ++) {
@@ -70,7 +70,7 @@ $(document).ready(function(){
             box.className = `box box-${i}`;
             box.innerHTML = arr.data[i];
 
-            $(".c-one").append(box); 
+            $(".display").append(box); 
             // we only want to allow the user to make the array once 
             $(".create_boxes").prop('disabled',true);
         }
@@ -93,7 +93,7 @@ $(document).ready(function(){
         box.innerHTML = boxToBeAdded;
 
         // add div to container
-        $(".c-one").append(box);
+        $(".display").append(box);
 
         // add the new element to the storage array
         arr.append(parseInt(boxToBeAdded));
