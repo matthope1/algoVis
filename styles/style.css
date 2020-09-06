@@ -258,7 +258,7 @@ header .header-heading {
   font-size: 45px;
 }
 
-div.box {
+div.array-element {
   height: 70px;
   width: 70px;
   border: solid;
@@ -268,7 +268,7 @@ div.box {
   margin: 10px;
 }
 
-.box {
+.array-element {
   background-color: #45A29E;
   border-color: pink;
 }

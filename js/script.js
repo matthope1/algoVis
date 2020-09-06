@@ -20,7 +20,6 @@ class array {
     }
 
     linearSearch(key) {
-
         let index = -1;
 
         for (let i = 0; i < this.length; i++ ) {
@@ -62,7 +61,6 @@ class array {
 
     rBinarySearch(key, l, r) {
 
-
         if(l < r) {
 
             let mid = Math.round((l+ r) / 2);
@@ -94,37 +92,15 @@ class array {
 
 function userIndexQuery() {
     const userResponse = parseInt(prompt("which element do you want to remove?"));
-    
     deleteItem(userResponse);
 }
 
-function deleteItem(index) {
-   // remove the div with the class box-index
-   
-   $(`.box-${index}`).remove();
-   
-   console.log("box removed");
 
-    // change the class names on the rest of the elements
-
-    for (let i = index; i < 10; i ++) {
-        console.log($(`.box box-${i}`).innerHTML);
-    }
-
-
-   // remove the element from the actual array
-}
-
-
-let p = "p";
-
-$(document).ready(function(){
-
-    console.log("document ready");
+function generateRandomArray () {
 
     let arr = new array();
-
-    // append 10 random numbers in the range 0 - 10
+    console.log("inside of generate random array function");
+    // generate 10 random numbers (range: 1 - 100) and append them onto array
     let i = 0;
 
     while (i < 10) {
@@ -139,36 +115,73 @@ $(document).ready(function(){
         }
     }
 
+    let arrayElement;
+    // first clear any array that is currently being displayed
+    $(`.array-element`).remove();
+
+    for (let i = 0; i < arr.length; i ++) {
+        // create a div element with the class of array-element
+        arrayElement = document.createElement("div");
+        arrayElement.className = `array-element index-${i}`;
+        arrayElement.innerHTML = arr.data[i];
+
+        // append each array element onto the display section 
+        $(".display").append(arrayElement); 
+
+    }
+
+    console.log("exiiting generate random array function");
+    return arr;
+}
+
+function deleteItem(index) {
+   // remove the div with the class box-index
+   
+   $(`.box-${index}`).remove();
+   
+   console.log("box removed");
+    //    console.log($(`.box.box-${index}`).innerHTML);
+
+    // change the class names on the rest of the elements
+
+    for (let i = index; i < 10; i ++) {
+        console.log($(`.box.box-${i}`).html());
+    }
+
+   // remove the element from the actual array
+}
+
+
+$(document).ready(function(){
+
+    console.log("document ready");
+
+    let arr; 
     
-    // arr.append(3);
-    // arr.append(5);
-    // arr.append(7);
-    // arr.append(8);
-
-    // sort numbers
-    arr.sort();
-    arr.display();
-
-    console.log(arr.binarySearch(7));
-
-    console.log("this happens");
-
-    $(".click-green").on('click', userIndexQuery);
-
-    $(".create_boxes").on ('click',function() {
-        let box;
-
-        for (let i = 0; i < arr.length; i ++) {
-            box = document.createElement("div");
-            box.className = `box box-${i}`;
-            box.innerHTML = arr.data[i];
-
-            $(".display").append(box); 
-            // we only want to allow the user to make the array once 
-            $(".create_boxes").prop('disabled',true);
-        }
-
+    // console.log("going into generate array function");
+    $(".generate-array").on('click', function() {
+        arr = generateRandomArray();
     });
+    // console.log("Just hopped out of generate array fuction");
+
+
+
+    $(".delete-item-button").on('click', userIndexQuery);
+
+    // $(".create_boxes").on ('click',function() {
+    //     let box;
+
+    //     for (let i = 0; i < arr.length; i ++) {
+    //         box = document.createElement("div");
+    //         box.className = `box box-${i}`;
+    //         box.innerHTML = arr.data[i];
+
+    //         $(".display").append(box); 
+    //         // we only want to allow the user to make the array once 
+    //         $(".create_boxes").prop('disabled',true);
+    //     }
+
+    // });
 
     $(".add_item").click(function () {
         let box;
