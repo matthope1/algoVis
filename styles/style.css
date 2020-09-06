@@ -270,6 +270,9 @@ div.array-element {
 
 .array-element {
   background-color: #45A29E;
+}
+
+.array-element .index-3 {
   border-color: pink;
 }
 

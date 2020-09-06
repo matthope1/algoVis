@@ -83,17 +83,13 @@ class array {
         this.data.sort(function(a,b){return a - b});
     }
 
-
     display(){
         console.log(this.data);
     }
 
 }
 
-function userIndexQuery() {
-    const userResponse = parseInt(prompt("which element do you want to remove?"));
-    deleteItem(userResponse);
-}
+
 
 
 function generateRandomArray () {
@@ -126,7 +122,7 @@ function generateRandomArray () {
         arrayElement.innerHTML = arr.data[i];
 
         // append each array element onto the display section 
-        $(".display").append(arrayElement); 
+        $(".display").append(arrayElement);
 
     }
 
@@ -134,21 +130,27 @@ function generateRandomArray () {
     return arr;
 }
 
-function deleteItem(index) {
+function deleteItem(index, arr) {
+    // grab desired index from user via prompt
+
+    const index = parseInt(prompt("which element do you want to remove?"));
+   // remove the element from the actual array
+
    // remove the div with the class box-index
+   $(`.array-element.index-${index}`).remove();
+   console.log(`.array-element index-${index}`);
    
-   $(`.box-${index}`).remove();
-   
-   console.log("box removed");
+   console.log("array element removed");
     //    console.log($(`.box.box-${index}`).innerHTML);
 
     // change the class names on the rest of the elements
 
     for (let i = index; i < 10; i ++) {
-        console.log($(`.box.box-${i}`).html());
+        console.log($(`.array-element.index-${i}`).html());
     }
 
-   // remove the element from the actual array
+    return arr;
+
 }
 
 
@@ -161,27 +163,12 @@ $(document).ready(function(){
     // console.log("going into generate array function");
     $(".generate-array").on('click', function() {
         arr = generateRandomArray();
+        // console.log(arr.data);
     });
+
     // console.log("Just hopped out of generate array fuction");
 
-
-
     $(".delete-item-button").on('click', userIndexQuery);
-
-    // $(".create_boxes").on ('click',function() {
-    //     let box;
-
-    //     for (let i = 0; i < arr.length; i ++) {
-    //         box = document.createElement("div");
-    //         box.className = `box box-${i}`;
-    //         box.innerHTML = arr.data[i];
-
-    //         $(".display").append(box); 
-    //         // we only want to allow the user to make the array once 
-    //         $(".create_boxes").prop('disabled',true);
-    //     }
-
-    // });
 
     $(".add_item").click(function () {
         let box;
