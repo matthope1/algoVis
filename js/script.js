@@ -111,6 +111,12 @@ function generateRandomArray () {
         }
     }
 
+    // TODO:
+    // break this up into two functions
+    // generate array function
+
+    // render to display area function
+
     let arrayElement;
     // first clear any array that is currently being displayed
     $(`.array-element`).remove();
@@ -130,14 +136,20 @@ function generateRandomArray () {
     return arr;
 }
 
-function deleteItem(index, arr) {
+function deleteItem(arr) {
+
     // grab desired index from user via prompt
-
     const index = parseInt(prompt("which element do you want to remove?"));
-   // remove the element from the actual array
+    //TODO:
+    // remove the element from the actual array
 
-   // remove the div with the class box-index
-   $(`.array-element.index-${index}`).remove();
+    // remove the div with the class box-index
+   $(`.array-element.index-${index}`).hide('slow', function () {
+       // you could also try changing the color of the element to red for a moment before the element gets deleted
+    
+       // use of callback function so that the remove happens after the hide slow animation
+        $(`.array-element.index-${index}`).remove();
+   });
    console.log(`.array-element index-${index}`);
    
    console.log("array element removed");
@@ -168,7 +180,7 @@ $(document).ready(function(){
 
     // console.log("Just hopped out of generate array fuction");
 
-    $(".delete-item-button").on('click', userIndexQuery);
+    $(".delete-item-button").on('click', deleteItem);
 
     $(".add_item").click(function () {
         let box;
