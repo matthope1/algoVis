@@ -57,6 +57,30 @@ class array {
         return -1;
     }
 
+    // We probably won't end up using this
+    // as the visualization would probably be pretty hard to do
+
+    rBinarySearch(key, l, r) {
+
+
+        if(l < r) {
+
+            let mid = Math.round((l+ r) / 2);
+
+            if (this.data[mid] == key) {
+                return key;    
+            }
+            else if (this.data[mid] < key) {
+                return this.rBinarySearch(key, mid + 1, r);
+            }
+            else { 
+                return this.rBinarySearch(key, l, mid - 1);
+            }
+        }
+
+        return -1;
+    }
+
     sort() {
         this.data.sort(function(a,b){return a - b});
     }
@@ -68,8 +92,27 @@ class array {
 
 }
 
-function iOnlyPrint() {
-    console.log("I only print");
+function userIndexQuery() {
+    const userResponse = parseInt(prompt("which element do you want to remove?"));
+    
+    deleteItem(userResponse);
+}
+
+function deleteItem(index) {
+   // remove the div with the class box-index
+   
+   $(`.box-${index}`).remove();
+   
+   console.log("box removed");
+
+    // change the class names on the rest of the elements
+
+    for (let i = index; i < 10; i ++) {
+        console.log($(`.box box-${i}`).innerHTML);
+    }
+
+
+   // remove the element from the actual array
 }
 
 
@@ -110,9 +153,7 @@ $(document).ready(function(){
 
     console.log("this happens");
 
-    $(".click-green").on('click', iOnlyPrint);
-
-
+    $(".click-green").on('click', userIndexQuery);
 
     $(".create_boxes").on ('click',function() {
         let box;
@@ -145,10 +186,10 @@ $(document).ready(function(){
         box.innerHTML = boxToBeAdded;
 
         // add div to container
-        $(".display").append(box);
+        $(".display2").append(box);
 
         // add the new element to the storage array
-        arr.append(parseInt(boxToBeAdded));
+        // arr.append(parseInt(boxToBeAdded));
 
 
     });
