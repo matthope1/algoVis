@@ -165,6 +165,17 @@ function deleteItem(arr) {
 
     // change the class names on the rest of the elements to n - 1
 
+    // can you select by class name and then get classname?
+    console.log("printing class name of index 3 element...");
+    console.log($(`.array-element.index-3`).className);
+
+    // TODO:
+    // change the classnames by calling removeClass()
+    // and addClass()
+    // create a variable to store the current selected element so we dont have to type out
+    // .array-elements.index .....
+
+
     for (let i = index + 1; i < 10; i ++) {
         // console.log($(`.array-element.index-${i}`).html());
         console.log($(`.array-element.index-${i}`).className);
@@ -175,7 +186,6 @@ function deleteItem(arr) {
     for (let i = index + 1; i < 10; i ++) {
         console.log($(`.array-element.index-${i}`).html());
     }
-
 
     return arr;
 
