@@ -7,6 +7,9 @@ class array {
     getElementAt(index){
         return data[index];
     }
+    
+    // TODO: 
+    // create a set function
 
     append(key){
         this.data.push(key);
@@ -15,7 +18,7 @@ class array {
     
     delete(index) {
         if (index > -1) {
-            arr.splice(index, 1);
+            this.data.splice(index, 1);
         }
     }
 
@@ -90,9 +93,7 @@ class array {
 }
 
 
-
-
-function generateRandomArray () {
+function generateRandomArray() {
 
     let arr = new array();
     console.log("inside of generate random array function");
@@ -111,15 +112,23 @@ function generateRandomArray () {
         }
     }
 
-    // TODO:
-    // break this up into two functions
-    // generate array function
 
-    // render to display area function
+    console.log("exiiting generate random array function");
+    return arr;
+}
 
+function renderStoredArray(arr) {
+    console.log("entering renderStoredArray function");
     let arrayElement;
     // first clear any array that is currently being displayed
-    $(`.array-element`).remove();
+    // $(`.array-element`).remove();
+
+    //hide the current displayed array
+    // then in a call back function remove that array from the markup 
+
+    $(`.array-element`).hide('slow',function() {
+        $(`.array-element`).remove();
+    })
 
     for (let i = 0; i < arr.length; i ++) {
         // create a div element with the class of array-element
@@ -131,9 +140,7 @@ function generateRandomArray () {
         $(".display").append(arrayElement);
 
     }
-
-    console.log("exiiting generate random array function");
-    return arr;
+    console.log("exiting renderStoredArray function");
 }
 
 function deleteItem(arr) {
@@ -141,10 +148,11 @@ function deleteItem(arr) {
     // grab desired index from user via prompt
     const index = parseInt(prompt("which element do you want to remove?"));
     //TODO:
-    // remove the element from the actual array
+    // remo the element from the actual array
 
+    arr.delete(index);
     // remove the div with the class box-index
-   $(`.array-element.index-${index}`).hide('slow', function () {
+   $(`.array-element.index-${index}`).hide('slow', function() {
        // you could also try changing the color of the element to red for a moment before the element gets deleted
     
        // use of callback function so that the remove happens after the hide slow animation
@@ -155,11 +163,19 @@ function deleteItem(arr) {
    console.log("array element removed");
     //    console.log($(`.box.box-${index}`).innerHTML);
 
-    // change the class names on the rest of the elements
+    // change the class names on the rest of the elements to n - 1
 
-    for (let i = index; i < 10; i ++) {
+    for (let i = index + 1; i < 10; i ++) {
+        // console.log($(`.array-element.index-${i}`).html());
+        console.log($(`.array-element.index-${i}`).className);
+        $(`.array-element.index-${i}`).className = `.array-element index-${i - 1}`;
+    }
+
+    console.log("printing array...");
+    for (let i = index + 1; i < 10; i ++) {
         console.log($(`.array-element.index-${i}`).html());
     }
+
 
     return arr;
 
@@ -175,13 +191,17 @@ $(document).ready(function(){
     // console.log("going into generate array function");
     $(".generate-array").on('click', function() {
         arr = generateRandomArray();
-        // console.log(arr.data);
+        renderStoredArray(arr);
     });
 
     // console.log("Just hopped out of generate array fuction");
 
-    $(".delete-item-button").on('click', deleteItem);
+    $(".delete-item-button").on('click', function() {
+        deleteItem(arr);
+    });
 
+    //todo put add item into its own function
+    // change box to array element
     $(".add_item").click(function () {
         let box;
 
