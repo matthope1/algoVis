@@ -9,10 +9,10 @@ class array {
     }
     
     // TODO: 
-    // create a set function
+    // create a set element function
 
-    append(key){
-        this.data.push(key);
+    append(value){
+        this.data.push(value);
         this.length++;
     }
     
@@ -59,7 +59,6 @@ class array {
         // we didnt find the key return not found
         return -1;
     }
-    
 
     sort() {
         this.data.sort(function(a,b){return a - b});
@@ -146,34 +145,42 @@ function deleteItem(arr, callback) {
 }
 
 function addItem(arr,value,callback) {
-    // check if array is at max size
-    // if its not at max size then append to array and re render
     let arrayElement;
 
     //prompt user for the number to add
-    let elementToBeAdded = prompt("what number to do you want to add to your array");
+    let elementToBeAdded = parseInt(prompt("what number to do you want to add to your array"));
 
-    //create the new div that will enclose the new array item
-    arrayElement = document.createElement("div");
-    // add class name based on the current length of the array
-    arrayElement.className = `array-element index-${arr.length}`;
-    // change the contents of the new div to the number given by the user
-    arrayElement.innerHTML = elementToBeAdded;
+    // check if array is at max size
+    // if its not at max size then append to array and re render
 
-    // add div to container
-    $(".display").append(arrayElement);
+    if (arr.length >= 10) {
+        alert("No more room in array!");
+    }
+    else {
 
-    // add the new element to the storage array
-    // arr.append(parseInt(arrayElementToBeAdded));
+        console.log("creading div to add to display");
+        //create the new div that will enclose the new array item
+        arrayElement = document.createElement("div");
+        // add class name based on the current length of the array
+        arrayElement.className = `array-element index-${arr.length}`;
+        // change the contents of the new div to the number given by the user
+        arrayElement.innerHTML = elementToBeAdded;
+        // add div to display container
+        $(".display").append(arrayElement);
 
+        console.log("done appending to display");
+
+    }
+
+    // append to stored array
+    arr.append(elementToBeAdded);
 }
-
 
 $(document).ready(function(){
 
     console.log("document ready");
 
-    let arr; 
+    let arr = new array(); 
     
     $(".generate-array").on('click', function() {
         arr = generateRandomArray(function(arr) {
@@ -193,9 +200,8 @@ $(document).ready(function(){
     // change this so that it works on a submit event
     // then passes the value from the input field
     // through to the function as a variable named value
-    $(".add-item-button").on('click',function () {
+    $(".add-item-button").on('click',function() {
 
-        addItem();
-        
+        addItem(arr);
     });
 });
