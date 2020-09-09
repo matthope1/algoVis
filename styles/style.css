@@ -277,10 +277,14 @@ div.array-element {
 }
 
 button {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   display: inline-block;
   background-color: #45A29E;
+}
+
+.buttons {
+  text-align: center;
 }
 
 section {
@@ -297,4 +301,8 @@ p {
   height: 100px;
   width: 100px;
   background-color: #45A29E;
+}
+
+.info {
+  color: white;
 }

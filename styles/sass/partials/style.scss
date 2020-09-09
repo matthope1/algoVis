@@ -33,7 +33,6 @@ body {
     }
 }
 
-
 header {
 
     text-align: center;
@@ -54,7 +53,6 @@ div.array-element {
     margin: 10px;
 }
 
-
 .array-element {
     background-color: $medBlue;
 }
@@ -64,10 +62,14 @@ div.array-element {
 }
 
 button {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     display: inline-block;
     background-color: $medBlue;
+}
+
+.buttons {
+    text-align: center;
 }
 
 section {
@@ -85,6 +87,10 @@ p {
     height: 100px;
     width: 100px;
     background-color: $medBlue;
+}
+
+.info {
+    color: white;
 }
 
 
