@@ -59,29 +59,7 @@ class array {
         // we didnt find the key return not found
         return -1;
     }
-
-    // We probably won't end up using this
-    // as the visualization would probably be pretty hard to do
-
-    // this still needs to be tested
-    rBinarySearch(key, l, r) {
-
-        if(l < r) {
-
-            let mid = Math.round((l+ r) / 2);
-
-            if (this.data[mid] == key) {
-                return key;    
-            }
-            else if (this.data[mid] < key) {
-                return this.rBinarySearch(key, mid + 1, r);
-            }
-            else { 
-                return this.rBinarySearch(key, l, mid - 1);
-            }
-        }
-        return -1;
-    }
+    
 
     sort() {
         this.data.sort(function(a,b){return a - b});
@@ -140,7 +118,9 @@ function renderStoredArray(arr) {
         arrayElement.className = `array-element index-${i}`;
         arrayElement.innerHTML = arr.data[i];
 
-        // append each array element onto the display section 
+        // append each array element onto the display section
+        // TODO:
+        // add an animation for the display  
         $(".display").append(arrayElement);
     }
     
@@ -165,6 +145,29 @@ function deleteItem(arr, callback) {
     // return arr;
 }
 
+function addItem(arr,value,callback) {
+    // check if array is at max size
+    // if its not at max size then append to array and re render
+    let arrayElement;
+
+    //prompt user for the number to add
+    let elementToBeAdded = prompt("what number to do you want to add to your array");
+
+    //create the new div that will enclose the new array item
+    arrayElement = document.createElement("div");
+    // add class name based on the current length of the array
+    arrayElement.className = `array-element index-${arr.length}`;
+    // change the contents of the new div to the number given by the user
+    arrayElement.innerHTML = elementToBeAdded;
+
+    // add div to container
+    $(".display").append(arrayElement);
+
+    // add the new element to the storage array
+    // arr.append(parseInt(arrayElementToBeAdded));
+
+}
+
 
 $(document).ready(function(){
 
@@ -187,29 +190,12 @@ $(document).ready(function(){
         });
     });
 
-    //todo put add item into its own function
-    // change box to array element
-    $(".add_item").click(function () {
-        let box;
+    // change this so that it works on a submit event
+    // then passes the value from the input field
+    // through to the function as a variable named value
+    $(".add-item-button").on('click',function () {
 
-        //prompt user for the number to add
-        let boxToBeAdded = prompt("what number to do you want to add to your array");
-
-        //create the new div that will enclose the new array item
-        box = document.createElement("div");
-
-        // add class name based on the current length of the array
-        box.className = `box box-${arr.length}`;
-
-        // change the contents of the new div to the number given by the user
-        box.innerHTML = boxToBeAdded;
-
-        // add div to container
-        $(".display2").append(box);
-
-        // add the new element to the storage array
-        // arr.append(parseInt(boxToBeAdded));
-
-
+        addItem();
+        
     });
 });
