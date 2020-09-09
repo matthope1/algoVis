@@ -126,7 +126,11 @@ function renderStoredArray(arr) {
 }
 
 function deleteItem(arr, callback) {
-    
+   
+    //TODO:
+    // change this so that we get user input from a form with an input field
+    // rather than grabbing it from a prompt
+
     // grab desired index from user via prompt
     const index = parseInt(prompt("which element do you want to remove?"));
 
@@ -146,6 +150,10 @@ function deleteItem(arr, callback) {
 
 function addItem(arr,value,callback) {
     let arrayElement;
+
+    //TODO:
+    // change this so that the user input comes from a form with an input field
+    // rather than using prompt to grab user input
 
     //prompt user for the number to add
     let elementToBeAdded = parseInt(prompt("what number to do you want to add to your array"));
