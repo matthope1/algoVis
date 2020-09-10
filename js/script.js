@@ -195,12 +195,19 @@ function addItem(arr,value,callback) {
     arr.append(elementToBeAdded);
 }
 
-$(document).ready(function(){
+const algoApp = {};
 
-    console.log("document ready");
+// change this so that theres only one function call 
+// inside of the document ready with an init function
 
-    let arr = new array(); 
+
+algoApp.init = () => {
+    // function calls
+    // on click events
+    console.log("inside init");
     
+    let arr = new array();
+
     $(".generate-array").on('click', function() {
         arr = generateRandomArray(function(arr) {
             console.log(arr.data);
@@ -223,4 +230,37 @@ $(document).ready(function(){
 
         addItem(arr);
     });
+
+}
+
+$(document).ready(function(){
+
+    console.log("document ready");
+    
+    algoApp.init();
+
+    // let arr = new array(); 
+    
+    // $(".generate-array").on('click', function() {
+    //     arr = generateRandomArray(function(arr) {
+    //         console.log(arr.data);
+    //         renderStoredArray(arr);
+    //     });
+
+    // });
+
+    // $(".delete-item-button").on('click', function() {
+    //     deleteItem(arr, function(arr) {
+    //         // refresh the sorted array to fix the index classname
+    //         renderStoredArray(arr);
+    //     });
+    // });
+
+    // // change this so that it works on a submit event
+    // // then passes the value from the input field
+    // // through to the function as a variable named value
+    // $(".add-item-button").on('click',function() {
+
+    //     addItem(arr);
+    // });
 });
