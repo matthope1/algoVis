@@ -136,7 +136,18 @@ function deleteItem(arr, callback) {
 
     arr.delete(index);
 
-    $(`.array-element.index-${index}`).hide('slow');
+    const deletedElement = $(`.array-element.index-${index}`);
+
+    //tip for fix
+    // you cant append this item to display 2
+    // since this item is being deleted from our html entirely
+    // if we want to save deleted elements we should save
+    // them by creating a complety new element
+
+    $(".display2").append(deletedElement);
+    console.log("Deleted this: ");
+    console.log(deletedElement.html());
+    // $(`.array-element.index-${index}`).hide('slow');
 
     // referenced this for the callback part
     // https://www.geeksforgeeks.org/how-to-create-a-custom-callback-in-javascript/#:~:text=All%20functions%20in%20JavaScript%20are,keyword%20as%20the%20last%20parameter.
