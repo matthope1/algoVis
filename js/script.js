@@ -24,6 +24,8 @@ class array {
     }
 
     linearSearch(key) {
+        //TODO:
+        // get this to work with animations
         let index = -1;
 
         for (let i = 0; i < this.length; i++ ) {
@@ -117,37 +119,44 @@ function renderStoredArray(arr) {
         arrayElement.innerHTML = arr.data[i];
 
         // append each array element onto the display section
-        // TODO:
+        // TODO NOT IMPORTANT:
         // add an animation for the display  
         $(".display-area").append(arrayElement);
     }
     
 }
 
-function deleteItem(arr, callback) {
+function deleteItem(arr, index, callback) {
    
-    //TODO:
-    // change this so that we get user input from a form with an input field
-    // rather than grabbing it from a prompt
+    // Delete items only when there's 1 or more elments
+    if (arr.length > 0) {
+        let arrayElement = document.createElement("div");
+        arrayElement.innerHTML = $(`.array-element.index-${index}`).html();
 
-    // grab desired index from user via prompt
-    const index = parseInt(prompt("which element do you want to remove?"));
+        // delete from rendered array
+        $(`.array-element.index-${index}`).remove();
 
-    let arrayElement = document.createElement("div");
-    arrayElement.innerHTML = $(`.array-element.index-${index}`).html();
+        // delete item from stored array
+        arr.delete(index);
 
-    // delete item from stored array
-    arr.delete(index);
+        //TODO: UNCOMMENT THIS WHEN YOU"RE READY 
+        $(".display-area2").append(arrayElement);
 
-    //TODO: UNCOMMENT THIS WHEN YOU"RE READY 
-    // $(".display-area2").append(arrayElement);
+        if (typeof callback == "function") {
+            callback(arr);
+        }
+    }
+
+    else {
+        // TODO NON IMPORTANT: 
+        // change this from being an alert to a small pop up window that will go away
+        // when the user clicks off of it
+
+        alert("There must be at least 1 item in array to perform deletion");
+    }
 
     // referenced this for the callback part
     // https://www.geeksforgeeks.org/how-to-create-a-custom-callback-in-javascript/#:~:text=All%20functions%20in%20JavaScript%20are,keyword%20as%20the%20last%20parameter.
-
-    if (typeof callback == "function") {
-        callback(arr);
-    }
 
 }
 
@@ -159,8 +168,10 @@ function addItem(arr,value,callback) {
     // rather than using prompt to grab user input
 
     //prompt user for the number to add
-    let elementToBeAdded = parseInt(prompt("what number to do you want to add to your array"));
+    // let elementToBeAdded = parseInt(prompt("what number to do you want to add to your array"));
 
+    // TODO: add input handling
+    elementToBeAdded = value;
     // check if array is at max size
     // if its not at max size then append to array and re render
 
@@ -200,30 +211,40 @@ algoApp.init = () => {
     // TODO:
     // validate the user input to 
     // make sure that they dont add something that they shouldnt/cant into the array
-    // the user must input a number 
+    // the user must input a number
+    // the user can't delete from arrays with a length of 0  
     $(".add-item-form").on("submit", function(e) {
         e.preventDefault();
-        const value =  $(".add-item-input").val();
+        const value =  parseInt($(".add-item-input").val());
+
+        
         console.log("adding item...");
         console.log(value);
 
-        // clear the value
+        addItem(arr, value);
+        // clear the input
         $(".add-item-input").val("");
     });
 
     // TODO:
     // validate the user input to 
-    // make sure that they dont delete something that they shouldnt/cant into the array
+    // make sure that they dont delete something that they shouldnt/cant from the array
     // the user must input a number
-    $(".delete-item-form").on("submit", function(e) {
+    $(".delete-item-form").on("submit", (e) => {
         e.preventDefault();
-        const value =  $(".delete-item-input").val();
-        console.log("deleting item..");
-        console.log(value);
+        const value =  parseInt($(".delete-item-input").val());
 
-        // clear the value
-        $(".delete-item-input").val("");
+        if (!value) {
+            alert("Index must be given");
+        }
+        else {
+            console.log("deleting item..");
+            
+            deleteItem(arr, value, arr => { renderStoredArray(arr); });
 
+            // clear the input
+            $(".delete-item-input").val("");
+        }
 
     });
 
@@ -235,20 +256,22 @@ algoApp.init = () => {
 
     });
 
-    $(".delete-item-button").on('click', function() {
-        deleteItem(arr, function(arr) {
-            // refresh the sorted array to fix the index classname
-            renderStoredArray(arr);
-        });
-    });
+    // $(".delete-item-button").on('click', function() {
+    //     deleteItem(arr, function(arr) {
+    //         // refresh the sorted array to fix the index classname
+    //         renderStoredArray(arr);
+    //     });
+    // });
 
     // change this so that it works on a submit event
     // then passes the value from the input field
     // through to the function as a variable named value
-    $(".add-item-button").on('click',function() {
 
-        addItem(arr);
-    });
+
+    // $(".add-item-button").on('click',function() {
+
+    //     addItem(arr);
+    // });
 
 }
 
@@ -258,3 +281,10 @@ $(document).ready(function(){
     
     algoApp.init();
 });
+
+
+
+
+//TODO #GENERAL
+// change functions to arrow syntax
+
