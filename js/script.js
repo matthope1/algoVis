@@ -130,7 +130,7 @@ function renderStoredArray(arr) {
 function deleteItem(arr, index, callback) {
    
     // Delete items only when there's 1 or more elments
-    if (arr.length > 0) {
+    if (arr.length > 0 && (0 < index < 10)) {
         let arrayElement = document.createElement("div");
         arrayElement.innerHTML = $(`.array-element.index-${index}`).html();
 
@@ -151,9 +151,8 @@ function deleteItem(arr, index, callback) {
     else {
         // TODO NON IMPORTANT: 
         // change this from being an alert to a small pop up window that will go away
-        // when the user clicks off of it
-
-        alert("There must be at least 1 item in array to perform deletion");
+        // when the user clicks off of the pop up
+        alert("There must be at least 1 item in array to perform deletion and the given index must be within range 0-9");
     }
 
     // referenced this for the callback part
@@ -164,15 +163,12 @@ function deleteItem(arr, index, callback) {
 function addItem(arr,value,callback) {
     let arrayElement;
 
-    // TODO: add input handling
     elementToBeAdded = value;
 
     if (arr.length >= 10) {
         alert("No more room in array!");
     }
     else {
-        // console.log("creating div to add to display");
-
         //create the new div that will enclose the new array item
         arrayElement = document.createElement("div");
         // add class name based on the current length of the array
@@ -181,9 +177,6 @@ function addItem(arr,value,callback) {
         arrayElement.innerHTML = elementToBeAdded;
         // add div to display container
         $(".display-area").append(arrayElement);
-
-        // console.log("done appending to display");
-
     }
 
     // append to stored array
@@ -194,34 +187,24 @@ const algoApp = {};
 
 
 algoApp.init = () => {
-    // function calls
-    // on click events
-    // console.log("inside init");
     
     let arr = new array();
-
-    // TODO:
-    // validate the user input to 
-    // make sure that they dont add something that they shouldnt/cant into the array
-    // the user must input a number
-    // the user can't delete from arrays with a length of 0  
-    $(".add-item-form").on("submit", function(e) {
+    $(".add-item-form").on("submit", (e) => {
         e.preventDefault();
         const value =  parseInt($(".add-item-input").val());
 
-        
-        // console.log("adding item...");
-        // console.log(value);
+        if (!value || typeof value != 'number') {
+            alert("A number must be given!");
+            $(".add-item-input").val("");
+        }
+        else {
+            addItem(arr, value);
+            //clearing the input
+            $(".add-item-input").val("");
+        }
 
-        addItem(arr, value);
-        // clear the input
-        $(".add-item-input").val("");
     });
 
-    // TODO:
-    // validate the user input to 
-    // make sure that they dont delete something that they shouldnt/cant from the array
-    // the user must input a number
     $(".delete-item-form").on("submit", (e) => {
         e.preventDefault();
         const value =  parseInt($(".delete-item-input").val());
@@ -230,46 +213,21 @@ algoApp.init = () => {
             alert("Index must be given");
         }
         else {
-            // console.log("deleting item..");
-            
-            deleteItem(arr, value, arr => { renderStoredArray(arr); });
-
-            // clear the input
+            deleteItem(arr, value, arr => { renderStoredArray(arr) });
+            // clearing the input 
             $(".delete-item-input").val("");
         }
-
     });
 
-    $(".generate-array").on('click', function() {
-        arr = generateRandomArray(function(arr) {
-            // console.log(arr.data);
-            renderStoredArray(arr);
-        });
-
+    $(".generate-array").on('click', () => {
+        arr = generateRandomArray((arr) => { renderStoredArray(arr) });
     });
-
-    // $(".delete-item-button").on('click', function() {
-    //     deleteItem(arr, function(arr) {
-    //         // refresh the sorted array to fix the index classname
-    //         renderStoredArray(arr);
-    //     });
-    // });
-
-    // change this so that it works on a submit event
-    // then passes the value from the input field
-    // through to the function as a variable named value
-
-
-    // $(".add-item-button").on('click',function() {
-
-    //     addItem(arr);
-    // });
 
 }
 
 $(document).ready(function(){
 
-    console.log("document ready");
+    // console.log("document ready");
     
     algoApp.init();
 });
