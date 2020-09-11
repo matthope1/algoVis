@@ -197,18 +197,34 @@ algoApp.init = () => {
     
     let arr = new array();
 
+    // TODO:
+    // validate the user input to 
+    // make sure that they dont add something that they shouldnt/cant into the array
+    // the user must input a number 
     $(".add-item-form").on("submit", function(e) {
         e.preventDefault();
         const value =  $(".add-item-input").val();
         console.log("adding item...");
         console.log(value);
+
+        // clear the value
+        $(".add-item-input").val("");
     });
 
+    // TODO:
+    // validate the user input to 
+    // make sure that they dont delete something that they shouldnt/cant into the array
+    // the user must input a number
     $(".delete-item-form").on("submit", function(e) {
         e.preventDefault();
         const value =  $(".delete-item-input").val();
         console.log("deleting item..");
         console.log(value);
+
+        // clear the value
+        $(".delete-item-input").val("");
+
+
     });
 
     $(".generate-array").on('click', function() {
