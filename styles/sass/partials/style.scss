@@ -20,17 +20,14 @@ $primay: 'B612', sans-serif;
 
 body {
     background-color: $black;
+    color: white;
 }
 
 .container {
     width: 90%;
     margin: 0 auto;
-    // border: solid;
-    // border-color: blue;
 
-    div {
-        display: inline-block;
-    }
+    
 }
 
 header {
@@ -43,33 +40,13 @@ header {
     }
 }
 
-div.array-element {
-    height: 70px;
-    width: 70px;
-    border: solid;
-    text-align: center;
-    font-size: 30px;
-    border-color: white;
-    margin: 10px;
-}
-
-.array-element {
-    background-color: $medBlue;
-}
-
-.array-element.index-3 {
-    border-color: pink;
-}
-
 button {
     width: 150px;
     height: 150px;
     display: inline-block;
     background-color: $medBlue;
-}
-
-.buttons {
-    text-align: center;
+    
+    // color: white;
 }
 
 section {
@@ -78,24 +55,57 @@ section {
     border-color: white; 
 }
 
-.red {
-    background-color: $medBlue;
-}
-
-
 p {
     height: 100px;
     width: 100px;
     background-color: $medBlue;
 }
 
-.info {
-    color: white;
+div.array-element {
+    height: 70px;
+    width: 70px;
+    border: solid;
+    text-align: center;
+    font-size: 30px;
+    border-color: white;
+    margin: 10px;
+    display: inline-block;
 }
 
 h1 {
     color: white;
 }
+
+.array-element {
+    background-color: $medBlue;
+}
+
+.buttons {
+    text-align: center;
+}
+
+.info {
+    color: white;
+}
+
+
+// user-input
+
+.user-input .container {
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+
+    // &:first-child {
+    //     margin-top: 60px;
+    // }
+
+    input {
+        display: block;
+    }
+}
+
+
 
 
 

@@ -89,7 +89,6 @@ function generateRandomArray(callback) {
         }
     }
 
-
     if (typeof callback == "function") {
         callback(arr);
     }
@@ -107,7 +106,7 @@ function removeRenderedArray() {
 
 function renderStoredArray(arr) {
     let arrayElement;
-    // first clear any array that is currently being displayed
+    // first clear any array that is currently being displayd
 
     $(`.array-element`).remove();
 
@@ -120,7 +119,7 @@ function renderStoredArray(arr) {
         // append each array element onto the display section
         // TODO:
         // add an animation for the display  
-        $(".display").append(arrayElement);
+        $(".display-area").append(arrayElement);
     }
     
 }
@@ -134,20 +133,14 @@ function deleteItem(arr, callback) {
     // grab desired index from user via prompt
     const index = parseInt(prompt("which element do you want to remove?"));
 
+    let arrayElement = document.createElement("div");
+    arrayElement.innerHTML = $(`.array-element.index-${index}`).html();
+
+    // delete item from stored array
     arr.delete(index);
 
-    const deletedElement = $(`.array-element.index-${index}`);
-
-    //tip for fix
-    // you cant append this item to display 2
-    // since this item is being deleted from our html entirely
-    // if we want to save deleted elements we should save
-    // them by creating a complety new element
-
-    $(".display2").append(deletedElement);
-    console.log("Deleted this: ");
-    console.log(deletedElement.html());
-    // $(`.array-element.index-${index}`).hide('slow');
+    //TODO: UNCOMMENT THIS WHEN YOU"RE READY 
+    // $(".display-area2").append(arrayElement);
 
     // referenced this for the callback part
     // https://www.geeksforgeeks.org/how-to-create-a-custom-callback-in-javascript/#:~:text=All%20functions%20in%20JavaScript%20are,keyword%20as%20the%20last%20parameter.
@@ -156,7 +149,6 @@ function deleteItem(arr, callback) {
         callback(arr);
     }
 
-    // return arr;
 }
 
 function addItem(arr,value,callback) {
@@ -185,7 +177,7 @@ function addItem(arr,value,callback) {
         // change the contents of the new div to the number given by the user
         arrayElement.innerHTML = elementToBeAdded;
         // add div to display container
-        $(".display").append(arrayElement);
+        $(".display-area").append(arrayElement);
 
         console.log("done appending to display");
 
@@ -197,9 +189,6 @@ function addItem(arr,value,callback) {
 
 const algoApp = {};
 
-// change this so that theres only one function call 
-// inside of the document ready with an init function
-
 
 algoApp.init = () => {
     // function calls
@@ -207,6 +196,20 @@ algoApp.init = () => {
     console.log("inside init");
     
     let arr = new array();
+
+    $(".add-item-form").on("submit", function(e) {
+        e.preventDefault();
+        const value =  $(".add-item-input").val();
+        console.log("adding item...");
+        console.log(value);
+    });
+
+    $(".delete-item-form").on("submit", function(e) {
+        e.preventDefault();
+        const value =  $(".delete-item-input").val();
+        console.log("deleting item..");
+        console.log(value);
+    });
 
     $(".generate-array").on('click', function() {
         arr = generateRandomArray(function(arr) {
@@ -238,29 +241,4 @@ $(document).ready(function(){
     console.log("document ready");
     
     algoApp.init();
-
-    // let arr = new array(); 
-    
-    // $(".generate-array").on('click', function() {
-    //     arr = generateRandomArray(function(arr) {
-    //         console.log(arr.data);
-    //         renderStoredArray(arr);
-    //     });
-
-    // });
-
-    // $(".delete-item-button").on('click', function() {
-    //     deleteItem(arr, function(arr) {
-    //         // refresh the sorted array to fix the index classname
-    //         renderStoredArray(arr);
-    //     });
-    // });
-
-    // // change this so that it works on a submit event
-    // // then passes the value from the input field
-    // // through to the function as a variable named value
-    // $(".add-item-button").on('click',function() {
-
-    //     addItem(arr);
-    // });
 });

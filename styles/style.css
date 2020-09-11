@@ -237,15 +237,12 @@ html {
 
 body {
   background-color: #0B0C10;
+  color: white;
 }
 
 .container {
   width: 90%;
   margin: 0 auto;
-}
-
-.container div {
-  display: inline-block;
 }
 
 header {
@@ -258,33 +255,11 @@ header .header-heading {
   font-size: 45px;
 }
 
-div.array-element {
-  height: 70px;
-  width: 70px;
-  border: solid;
-  text-align: center;
-  font-size: 30px;
-  border-color: white;
-  margin: 10px;
-}
-
-.array-element {
-  background-color: #45A29E;
-}
-
-.array-element.index-3 {
-  border-color: pink;
-}
-
 button {
   width: 150px;
   height: 150px;
   display: inline-block;
   background-color: #45A29E;
-}
-
-.buttons {
-  text-align: center;
 }
 
 section {
@@ -293,20 +268,48 @@ section {
   border-color: white;
 }
 
-.red {
-  background-color: #45A29E;
-}
-
 p {
   height: 100px;
   width: 100px;
   background-color: #45A29E;
 }
 
-.info {
-  color: white;
+div.array-element {
+  height: 70px;
+  width: 70px;
+  border: solid;
+  text-align: center;
+  font-size: 30px;
+  border-color: white;
+  margin: 10px;
+  display: inline-block;
 }
 
 h1 {
   color: white;
+}
+
+.array-element {
+  background-color: #45A29E;
+}
+
+.buttons {
+  text-align: center;
+}
+
+.info {
+  color: white;
+}
+
+.user-input .container {
+  width: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.user-input .container input {
+  display: block;
 }
