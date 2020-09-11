@@ -8,8 +8,9 @@ class array {
         return data[index];
     }
     
-    // TODO: 
-    // create a set element function
+    setElementAt(index, value) {
+        data[index] = value;
+    }
 
     append(value){
         this.data.push(value);
@@ -163,24 +164,15 @@ function deleteItem(arr, index, callback) {
 function addItem(arr,value,callback) {
     let arrayElement;
 
-    //TODO:
-    // change this so that the user input comes from a form with an input field
-    // rather than using prompt to grab user input
-
-    //prompt user for the number to add
-    // let elementToBeAdded = parseInt(prompt("what number to do you want to add to your array"));
-
     // TODO: add input handling
     elementToBeAdded = value;
-    // check if array is at max size
-    // if its not at max size then append to array and re render
 
     if (arr.length >= 10) {
         alert("No more room in array!");
     }
     else {
+        // console.log("creating div to add to display");
 
-        console.log("creading div to add to display");
         //create the new div that will enclose the new array item
         arrayElement = document.createElement("div");
         // add class name based on the current length of the array
@@ -190,7 +182,7 @@ function addItem(arr,value,callback) {
         // add div to display container
         $(".display-area").append(arrayElement);
 
-        console.log("done appending to display");
+        // console.log("done appending to display");
 
     }
 
@@ -204,7 +196,7 @@ const algoApp = {};
 algoApp.init = () => {
     // function calls
     // on click events
-    console.log("inside init");
+    // console.log("inside init");
     
     let arr = new array();
 
@@ -218,8 +210,8 @@ algoApp.init = () => {
         const value =  parseInt($(".add-item-input").val());
 
         
-        console.log("adding item...");
-        console.log(value);
+        // console.log("adding item...");
+        // console.log(value);
 
         addItem(arr, value);
         // clear the input
@@ -238,7 +230,7 @@ algoApp.init = () => {
             alert("Index must be given");
         }
         else {
-            console.log("deleting item..");
+            // console.log("deleting item..");
             
             deleteItem(arr, value, arr => { renderStoredArray(arr); });
 
@@ -250,7 +242,7 @@ algoApp.init = () => {
 
     $(".generate-array").on('click', function() {
         arr = generateRandomArray(function(arr) {
-            console.log(arr.data);
+            // console.log(arr.data);
             renderStoredArray(arr);
         });
 
