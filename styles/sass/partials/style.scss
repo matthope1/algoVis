@@ -15,11 +15,13 @@ $medBlue: #C5C6C7;
 $neonBlue: #66FCF1;
 $medBlue: #45A29E;
 
+$darkSkyBlue: #78C0E0;
+
 //fonts
 $primay: 'B612', sans-serif;
 
 body {
-    background-color: $black;
+    background-color: $darkSkyBlue;
     color: white;
 }
 
@@ -31,7 +33,6 @@ body {
 }
 
 header {
-
     text-align: center;
     .header-heading {
         color: $neonBlue;
@@ -41,8 +42,8 @@ header {
 }
 
 button {
-    width: 150px;
-    height: 150px;
+    width: 110px;
+    height: 110px;
     display: inline-block;
     background-color: $medBlue;
     
@@ -52,8 +53,8 @@ button {
 section {
     padding: 30px;
     border: solid;
-    border-color: white; 
-}
+    border-color: white;
+} 
 
 p {
     height: 100px;
@@ -62,8 +63,8 @@ p {
 }
 
 div.array-element {
-    height: 70px;
-    width: 70px;
+    height: 40px;
+    width: 40px;
     border: solid;
     text-align: center;
     font-size: 30px;

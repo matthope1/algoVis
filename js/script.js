@@ -1,7 +1,7 @@
 class array {
     constructor () {
-        this.length = 0;
-        this.data = [];
+        this.length = 2;
+        this.data = [31,14];
     }
 
     getElementAt(index){
@@ -130,7 +130,7 @@ function renderStoredArray(arr) {
 function deleteItem(arr, index, callback) {
    
     // Delete items only when there's 1 or more elments
-    if (arr.length > 0 && (0 < index < 10)) {
+    if (arr.length > 0 && (index >= 0 && index <= arr.length)) {
         let arrayElement = document.createElement("div");
         arrayElement.innerHTML = $(`.array-element.index-${index}`).html();
 
@@ -152,7 +152,7 @@ function deleteItem(arr, index, callback) {
         // TODO NON IMPORTANT: 
         // change this from being an alert to a small pop up window that will go away
         // when the user clicks off of the pop up
-        alert("There must be at least 1 item in array to perform deletion and the given index must be within range 0-9");
+        alert("There must be at least 1 item in array to perform deletion and the given index must be within range of the array length");
     }
 
     // referenced this for the callback part
@@ -189,11 +189,13 @@ const algoApp = {};
 algoApp.init = () => {
     
     let arr = new array();
+    // add item
     $(".add-item-form").on("submit", (e) => {
         e.preventDefault();
         const value =  parseInt($(".add-item-input").val());
 
-        if (!value || typeof value != 'number') {
+
+        if (typeof value != 'number') {
             alert("A number must be given!");
             $(".add-item-input").val("");
         }
@@ -205,11 +207,14 @@ algoApp.init = () => {
 
     });
 
+    // delete item
     $(".delete-item-form").on("submit", (e) => {
         e.preventDefault();
         const value =  parseInt($(".delete-item-input").val());
 
-        if (!value) {
+        console.log("value: " + value); 
+
+        if (typeof value != 'number') {
             alert("Index must be given");
         }
         else {
