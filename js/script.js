@@ -194,8 +194,7 @@ algoApp.init = () => {
         e.preventDefault();
         const value =  parseInt($(".add-item-input").val());
 
-
-        if (typeof value != 'number') {
+        if (typeof value != 'number' || !value.length) {
             alert("A number must be given!");
             $(".add-item-input").val("");
         }
@@ -212,7 +211,7 @@ algoApp.init = () => {
         e.preventDefault();
         const value =  parseInt($(".delete-item-input").val());
 
-        console.log("value: " + value); 
+        // console.log("value: " + value); 
 
         if (typeof value != 'number') {
             alert("Index must be given");
