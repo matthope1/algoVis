@@ -236,8 +236,8 @@ html {
 }
 
 body {
-  background-color: #78C0E0;
-  color: white;
+  background-color: #F5F5F5;
+  color: #272932;
 }
 
 .container {
@@ -250,22 +250,27 @@ header {
 }
 
 header .header-heading {
-  color: #66FCF1;
-  font-family: "B612", sans-serif;
+  color: #272932;
   font-size: 45px;
 }
 
+.heading {
+  font-family: "Domine", serif;
+}
+
+.body-text {
+  font-family: "Roboto", sans-serif;
+}
+
 button {
-  width: 110px;
-  height: 110px;
+  width: 150px;
+  height: 40px;
   display: inline-block;
-  background-color: #45A29E;
+  background-color: #4D7EA8;
 }
 
 section {
   padding: 30px;
-  border: solid;
-  border-color: white;
 }
 
 p {
@@ -280,36 +285,36 @@ div.array-element {
   border: solid;
   text-align: center;
   font-size: 30px;
-  border-color: white;
+  border-color: #272932;
   margin: 10px;
   display: inline-block;
 }
 
-h1 {
-  color: white;
-}
-
 .array-element {
-  background-color: #45A29E;
+  background-color: #4D7EA8;
 }
 
 .buttons {
   text-align: center;
 }
 
-.info {
-  color: white;
-}
-
 .user-input .container {
   width: 70%;
+}
+
+.user-input .container .user-input_ga {
+  margin-top: 50px;
+}
+
+.user-input .container input {
+  display: block;
+}
+
+.button-group {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-}
-
-.user-input .container input {
-  display: block;
+  margin-bottom: 40px;
 }

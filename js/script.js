@@ -1,14 +1,20 @@
 class array {
     constructor () {
+        // TODO:
+        // fix this so that the array doesn't go to size 12 when you
+        // generate random numbers to be placed
         this.length = 2;
         this.data = [31,14];
     }
 
     getElementAt(index){
+        // check if index is within range
         return data[index];
     }
     
     setElementAt(index, value) {
+        // todo: check if index is within range
+        // check if value is a number first
         data[index] = value;
     }
 

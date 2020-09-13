@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>algoVis</title>
     <link rel="stylesheet" href="./styles/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=B612:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <!-- move script tags to just above the closing body tag -->
 
 </head>
@@ -33,17 +33,16 @@
 
     <section class="user-input">
         <div class="container buttons">
-            <div>
-                <button class="generate-array">Generate array (size 10)</button>
+            <div class="button-group">
+                <button class="generate-array">Generate random array</button>
+                <button>Sort array</button>
             </div>
-            <div>
+            <div class="button-group">
                 <form class="add-item-form">
                     <label for="add-item-input">Number to be added (1 - 100)</label>
                     <input type="text" name="add-item-input" class="add-item-input">
                     <button type="submit" value="Add item" class="add-item-button">Add item</button>
                 </form>
-            </div>
-            <div>
                 <form class="delete-item-form">
                     <label for="delete-item-input">Number to be deleted (index)</label>
                     <input type="text" name="delete-item-input" class="delete-item-input">
@@ -55,7 +54,7 @@
 
     <section>
         <div class="container">
-            <h1>Deleted Items...</h1>
+            <!-- <h1>Deleted Items...</h1> -->
         </div>
 
         <div class="container display-area2">

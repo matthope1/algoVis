@@ -15,45 +15,62 @@ $medBlue: #C5C6C7;
 $neonBlue: #66FCF1;
 $medBlue: #45A29E;
 
-$darkSkyBlue: #78C0E0;
+// new colors
+
+$raisinBlack: #272932;
+$steelBlue: #4D7EA8;
+$grayWeb: #828489;
+$heliotropeGray: #9E90A2;
+$lightSteelBlue: #B6C2D9;
 
 //fonts
-$primay: 'B612', sans-serif;
+$primary: 'Domine', serif;
+$secondary: 'Roboto', sans-serif;
 
+
+//styling
 body {
-    background-color: $darkSkyBlue;
-    color: white;
+    background-color: #F5F5F5;
+    color: $raisinBlack;
+
 }
+
+
 
 .container {
     width: 90%;
     margin: 0 auto;
-
-    
 }
 
 header {
     text-align: center;
     .header-heading {
-        color: $neonBlue;
-        font-family: $primay;
+        color: $raisinBlack;
         font-size: 45px;
     }
 }
 
+.heading {
+    font-family: $primary;
+}
+
+.body-text {
+    font-family: $secondary;
+}
+
 button {
-    width: 110px;
-    height: 110px;
+    width: 150px;
+    height: 40px;
     display: inline-block;
-    background-color: $medBlue;
+    background-color: $steelBlue;
     
     // color: white;
 }
 
 section {
     padding: 30px;
-    border: solid;
-    border-color: white;
+    // border: solid;
+    // border-color: $spaceCadet;
 } 
 
 p {
@@ -68,17 +85,17 @@ div.array-element {
     border: solid;
     text-align: center;
     font-size: 30px;
-    border-color: white;
+    border-color: $raisinBlack;
     margin: 10px;
     display: inline-block;
 }
 
 h1 {
-    color: white;
+    // color: white;
 }
 
 .array-element {
-    background-color: $medBlue;
+    background-color: $steelBlue;
 }
 
 .buttons {
@@ -86,7 +103,7 @@ h1 {
 }
 
 .info {
-    color: white;
+    // color: white;
 }
 
 
@@ -94,16 +111,26 @@ h1 {
 
 .user-input .container {
     width: 70%;
-    display: flex;
-    justify-content: space-around;
+    // display: flex;
+    // justify-content: space-around;
 
     // &:first-child {
     //     margin-top: 60px;
     // }
 
+    .user-input_ga {
+        margin-top: 50px;
+    }
+
     input {
         display: block;
     }
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 40px;
 }
 
 
