@@ -32,10 +32,7 @@ $secondary: 'Roboto', sans-serif;
 body {
     background-color: white;
     color: $raisinBlack;
-
 }
-
-
 
 .container {
     width: 90%;
@@ -65,12 +62,8 @@ button {
     display: inline-block;
     background-color: $lightSteelBlue;
     color: $raisinBlack;
-
-    // border-right: $steelblue;
     border: none;
     border-radius: 50px;
-    
-    // color: white;
 }
 
 button:hover {
@@ -79,8 +72,6 @@ button:hover {
 
 section {
     padding: 30px;
-    // border: solid;
-    // border-color: $spaceCadet;
 } 
 
 p {
@@ -92,7 +83,6 @@ p {
 div.array-element {
     height: 42px;
     width: 42px;
-    // border: solid;
     border-radius: 30px;
     text-align: center;
     font-size: 30px;
@@ -105,9 +95,6 @@ div.array-element:hover {
     color: white;
 }
 
-h1 {
-    // color: white;
-}
 
 .array-element {
     background-color: $lightSteelBlue;
@@ -116,11 +103,6 @@ h1 {
 .buttons {
     text-align: center;
 }
-
-.info {
-    // color: white;
-}
-
 
 .display-area {
     text-align: center;
@@ -131,12 +113,6 @@ h1 {
 .user-input .container {
     width: 70%;
     max-width: 1500px;
-    // display: flex;
-    // justify-content: space-around;
-
-    // &:first-child {
-    //     margin-top: 60px;
-    // }
 
     .user-input_ga {
         margin-top: 50px;
@@ -156,10 +132,8 @@ h1 {
         display: flex;
         justify-content: space-around;
         margin-bottom: 40px;
-        // border: solid;
     }
 }
-
 
 
 //media q
