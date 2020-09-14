@@ -39,6 +39,7 @@ body {
 
 .container {
     width: 90%;
+    max-width: 1500px;
     margin: 0 auto;
 }
 
@@ -59,8 +60,8 @@ header {
 }
 
 button {
-    width: 150px;
-    height: 40px;
+    width: 110px;
+    height: 30px;
     display: inline-block;
     background-color: $lightSteelBlue;
     color: $raisinBlack;
@@ -70,6 +71,10 @@ button {
     border-radius: 50px;
     
     // color: white;
+}
+
+button:hover {
+    color: white;
 }
 
 section {
@@ -117,10 +122,15 @@ h1 {
 }
 
 
+.display-area {
+    text-align: center;
+}
+
 // user-input
 
 .user-input .container {
     width: 70%;
+    max-width: 1500px;
     // display: flex;
     // justify-content: space-around;
 
@@ -134,22 +144,47 @@ h1 {
 
     input {
         display: block;
+        margin: 10px auto;
+        width: 50px;
     }
 
     label {
         display: block;
     }
+
+    .button-group {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 40px;
+        // border: solid;
+    }
 }
 
-.button-group {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 40px;
+
+
+//media q
+
+/* Portrait tablet and small desktops */
+@media (max-width: 940px) {
+
+} 
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 768px) {
+    .button-group {
+        flex-direction: column;
+        
+        form {
+            margin: 20px auto;
+        }
+    }
 }
 
 
+/* Landscape phones and down */
+@media (max-width: 480px) {
 
-
+}
 
 
 

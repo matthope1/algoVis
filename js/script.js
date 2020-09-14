@@ -3,8 +3,8 @@ class array {
         // TODO:
         // fix this so that the array doesn't go to size 12 when you
         // generate random numbers to be placed
-        this.length = 2;
-        this.data = [31,14];
+        this.length = 0;
+        this.data = [];
     }
 
     getElementAt(index){
@@ -185,7 +185,6 @@ function addItem(arr,value,callback) {
         $(".display-area").append(arrayElement);
     }
 
-    console.log("HellO!")
     // append to stored array
     arr.append(elementToBeAdded);
 }
@@ -196,12 +195,16 @@ const algoApp = {};
 algoApp.init = () => {
     
     let arr = new array();
+
+    arr = generateRandomArray((arr) => { renderStoredArray(arr) });
     // add item
     $(".add-item-form").on("submit", (e) => {
         e.preventDefault();
         const value =  parseInt($(".add-item-input").val());
 
-        if (typeof value != 'number' || !value.length) {
+        console.log(value.length);
+
+        if (typeof value != 'number') {
             alert("A number must be given!");
             $(".add-item-input").val("");
         }
