@@ -30,7 +30,7 @@ $secondary: 'Roboto', sans-serif;
 
 //styling
 body {
-    background-color: #F5F5F5;
+    background-color: white;
     color: $raisinBlack;
 
 }
@@ -62,7 +62,12 @@ button {
     width: 150px;
     height: 40px;
     display: inline-block;
-    background-color: $steelBlue;
+    background-color: $lightSteelBlue;
+    color: $raisinBlack;
+
+    // border-right: $steelblue;
+    border: none;
+    border-radius: 50px;
     
     // color: white;
 }
@@ -80,9 +85,10 @@ p {
 }
 
 div.array-element {
-    height: 40px;
-    width: 40px;
-    border: solid;
+    height: 42px;
+    width: 42px;
+    // border: solid;
+    border-radius: 30px;
     text-align: center;
     font-size: 30px;
     border-color: $raisinBlack;
@@ -90,12 +96,16 @@ div.array-element {
     display: inline-block;
 }
 
+div.array-element:hover {
+    color: white;
+}
+
 h1 {
     // color: white;
 }
 
 .array-element {
-    background-color: $steelBlue;
+    background-color: $lightSteelBlue;
 }
 
 .buttons {
@@ -123,6 +133,10 @@ h1 {
     }
 
     input {
+        display: block;
+    }
+
+    label {
         display: block;
     }
 }

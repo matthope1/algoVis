@@ -26,20 +26,26 @@
    
     <section>
          <div class="container display-area">
-            <div class="array-element index-0">31</div>
-            <div class="array-element index-1">14</div>
+            <!-- <div class="array-element index-0">31</div>
+            <div class="array-element index-1">14</div> -->
         </div>
     </section>
 
     <section class="user-input">
         <div class="container buttons">
             <div class="button-group">
-                <button class="generate-array">Generate random array</button>
-                <button>Sort array</button>
+                <form class="generate-array-form">
+                    <label for="generate-array">Generate random array</label>
+                    <button id="generate-array" class="generate-array">Generate</button>
+                </form>
+                <form class="generate-sorted-array-form">
+                    <label for="generate-sorted-array">Generate sorted array</label>
+                    <button>Generate</button>
+                </form>
             </div>
             <div class="button-group">
                 <form class="add-item-form">
-                    <label for="add-item-input">Number to be added (1 - 100)</label>
+                    <label for="add-item-input">Add a number</label>
                     <input type="text" name="add-item-input" class="add-item-input">
                     <button type="submit" value="Add item" class="add-item-button">Add item</button>
                 </form>

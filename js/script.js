@@ -78,10 +78,10 @@ class array {
     }
 }
 
-
-
 function generateRandomArray(callback) {
-
+    //TODO:
+    // FIX THIS
+    // 
     let arr = new array();
     // generate 10 random numbers (range: 1 - 100) and append them onto array
     let i = 0;
@@ -185,6 +185,7 @@ function addItem(arr,value,callback) {
         $(".display-area").append(arrayElement);
     }
 
+    console.log("HellO!")
     // append to stored array
     arr.append(elementToBeAdded);
 }
@@ -229,7 +230,8 @@ algoApp.init = () => {
         }
     });
 
-    $(".generate-array").on('click', () => {
+    $(".generate-array-form").on('submit', (e) => {
+        e.preventDefault();
         arr = generateRandomArray((arr) => { renderStoredArray(arr) });
     });
 

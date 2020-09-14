@@ -236,7 +236,7 @@ html {
 }
 
 body {
-  background-color: #F5F5F5;
+  background-color: white;
   color: #272932;
 }
 
@@ -266,7 +266,10 @@ button {
   width: 150px;
   height: 40px;
   display: inline-block;
-  background-color: #4D7EA8;
+  background-color: #B6C2D9;
+  color: #272932;
+  border: none;
+  border-radius: 50px;
 }
 
 section {
@@ -280,9 +283,9 @@ p {
 }
 
 div.array-element {
-  height: 40px;
-  width: 40px;
-  border: solid;
+  height: 42px;
+  width: 42px;
+  border-radius: 30px;
   text-align: center;
   font-size: 30px;
   border-color: #272932;
@@ -290,8 +293,12 @@ div.array-element {
   display: inline-block;
 }
 
+div.array-element:hover {
+  color: white;
+}
+
 .array-element {
-  background-color: #4D7EA8;
+  background-color: #B6C2D9;
 }
 
 .buttons {
@@ -307,6 +314,10 @@ div.array-element {
 }
 
 .user-input .container input {
+  display: block;
+}
+
+.user-input .container label {
   display: block;
 }
 
