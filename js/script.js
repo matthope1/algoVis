@@ -1,7 +1,5 @@
 class array {
     constructor () {
-        // TODO:
-        // fix this so that the array doesn't go to size 12 when you
         // generate random numbers to be placed
         this.length = 0;
         this.data = [];
@@ -82,9 +80,6 @@ class array {
 }
 
 function generateRandomArray(callback) {
-    //TODO:
-    // FIX THIS
-    // 
     let arr = new array();
     // generate 10 random numbers (range: 1 - 100) and append them onto array
     let i = 0;
@@ -113,7 +108,6 @@ function removeRenderedArray() {
     $(`.array-element`).hide('slow', function() {
         $(`.array-element`).remove();
     });
-
 }
 
 function renderStoredArray(arr) {
@@ -122,34 +116,27 @@ function renderStoredArray(arr) {
 
     let arrayBox;
 
+    //todo:
+    // see if there's a better way of doing this
+    // try to find alternate solution rather than making a ae box and the ae box seperately
 
     $(`.array-element`).remove();
     $(".array-element-box").remove();
 
-    for (let i = 0; i < arr.length; i ++) {
-        // create a div element with the class of array-element
-        //todo:
-        // change this from creation with dom
-        // to creation with jquery
+    for (let i = 0; i < arr.getLength(); i ++) {
         // arrayElement = document.createElement("div");
         // arrayElement.className = `array-element index-${i}`;
         // arrayElement.innerHTML = arr.data[i];
 
         arrayBox = $("<div></div>").addClass("array-element-box");
         arrayElement = $("<h2></h2>").text(arr.data[i]).addClass(`array-element index-${i}`)
-        // .append(`<p>${i}</p>`);
 
-        // append each array element onto the display section
         // TODO NOT IMPORTANT:
         // add an animation for the display  
         // $(".display-area").append(arrayElement);
         $(arrayBox).append(arrayElement, $(`<p>${i}</p>`));
 
-        
         $(".display-area").append(arrayBox);
-
-
-
     }
 
     // render info about the array into the array info section
@@ -159,14 +146,14 @@ function renderStoredArray(arr) {
 
     let infoElement = $("<h2></h2>").text("length" + arr.getLength()).addClass("info-element");
     $(`.display-info`).append(infoElement);
-
-    
 }
 
 function deleteItem(arr, index, callback) {
    
     // Delete items only when there's 1 or more elments
     if (arr.length > 0 && (index >= 0 && index < arr.length)) {
+        //TODO:
+        // change this to use jquery instead of vjs dom manipulation
         let arrayElement = document.createElement("div");
         arrayElement.innerHTML = $(`.array-element.index-${index}`).html();
 
@@ -176,7 +163,6 @@ function deleteItem(arr, index, callback) {
         // delete item from stored array
         arr.delete(index);
 
-        //TODO: UNCOMMENT THIS WHEN YOU"RE READY 
         $(".display-area2").append(arrayElement);
 
         if (typeof callback == "function") {
@@ -198,8 +184,12 @@ function deleteItem(arr, index, callback) {
 
 function addItem(arr,value,callback) {
     //TODO:
+    // change alerts to pop up boxes?
     // fix this, it renders a div instead of an array box and array element
+    //TODO:
+    // add input handling
     let arrayElement;
+    let arrayBox;
 
     elementToBeAdded = value;
 
@@ -207,18 +197,27 @@ function addItem(arr,value,callback) {
         alert("No more room in array!");
     }
     else {
-        //create the new div that will enclose the new array item
-        arrayElement = document.createElement("div");
-        // add class name based on the current length of the array
-        arrayElement.className = `array-element index-${arr.length}`;
-        // change the contents of the new div to the number given by the user
-        arrayElement.innerHTML = elementToBeAdded;
-        // add div to display container
-        $(".display-area").append(arrayElement);
+        // append to stored array
+        arr.append(elementToBeAdded);
+
+        arrayBox = $("<div></div>").addClass("array-element-box");
+
+        arrayElement = $("<h2></h2>").text(elementToBeAdded).addClass(`array-element index-${arr.getLength() - 1}`);
+
+        $(arrayBox).append(arrayElement, $(`<p>${arr.getLength() - 1}</p>`));
+
+        $(".display-area").append(arrayBox);
+
+        // //create the new div that will enclose the new array item
+        // arrayElement = document.createElement("div");
+        // // add class name based on the current length of the array
+        // arrayElement.className = `array-element index-${arr.length}`;
+        // // change the contents of the new div to the number given by the user
+        // arrayElement.innerHTML = elementToBeAdded;
+        // // add div to display container
+        // $(".display-area").append(arrayElement);
     }
 
-    // append to stored array
-    arr.append(elementToBeAdded);
 }
 
 const algoApp = {}
@@ -236,7 +235,7 @@ algoApp.init = () => {
         e.preventDefault();
         const value =  parseInt($(".add-item-input").val());
 
-        console.log(value.length);
+        // console.log(value.length);
 
         if (typeof value != 'number') {
             alert("A number must be given!");
