@@ -7,6 +7,9 @@ class array {
         this.data = [];
     }
 
+    getLength() {return this.length};
+
+
     getElementAt(index){
         // check if index is within range
         return data[index];
@@ -117,31 +120,58 @@ function renderStoredArray(arr) {
     let arrayElement;
     // first clear any array that is currently being displayd
 
+    let arrayBox;
+
+
     $(`.array-element`).remove();
+    $(".array-element-box").remove();
 
     for (let i = 0; i < arr.length; i ++) {
         // create a div element with the class of array-element
-        arrayElement = document.createElement("div");
-        arrayElement.className = `array-element index-${i}`;
-        arrayElement.innerHTML = arr.data[i];
+        //todo:
+        // change this from creation with dom
+        // to creation with jquery
+        // arrayElement = document.createElement("div");
+        // arrayElement.className = `array-element index-${i}`;
+        // arrayElement.innerHTML = arr.data[i];
+
+        arrayBox = $("<div></div>").addClass("array-element-box");
+        arrayElement = $("<h2></h2>").text(arr.data[i]).addClass(`array-element index-${i}`)
+        // .append(`<p>${i}</p>`);
 
         // append each array element onto the display section
         // TODO NOT IMPORTANT:
         // add an animation for the display  
-        $(".display-area").append(arrayElement);
+        // $(".display-area").append(arrayElement);
+        $(arrayBox).append(arrayElement, $(`<p>${i}</p>`));
+
+        
+        $(".display-area").append(arrayBox);
+
+
+
     }
+
+    // render info about the array into the array info section
+
+    // remove any currently rendered infromation
+    $(`.display-info`).empty();
+
+    let infoElement = $("<h2></h2>").text("length" + arr.getLength()).addClass("info-element");
+    $(`.display-info`).append(infoElement);
+
     
 }
 
 function deleteItem(arr, index, callback) {
    
     // Delete items only when there's 1 or more elments
-    if (arr.length > 0 && (index >= 0 && index <= arr.length)) {
+    if (arr.length > 0 && (index >= 0 && index < arr.length)) {
         let arrayElement = document.createElement("div");
         arrayElement.innerHTML = $(`.array-element.index-${index}`).html();
 
         // delete from rendered array
-        $(`.array-element.index-${index}`).remove();
+        // $(`.array-element.index-${index}`).remove();
 
         // delete item from stored array
         arr.delete(index);
@@ -167,6 +197,8 @@ function deleteItem(arr, index, callback) {
 }
 
 function addItem(arr,value,callback) {
+    //TODO:
+    // fix this, it renders a div instead of an array box and array element
     let arrayElement;
 
     elementToBeAdded = value;
@@ -189,7 +221,9 @@ function addItem(arr,value,callback) {
     arr.append(elementToBeAdded);
 }
 
-const algoApp = {};
+const algoApp = {}
+
+
 
 
 algoApp.init = () => {

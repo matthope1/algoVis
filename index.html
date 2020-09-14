@@ -14,7 +14,7 @@
 
     <header>
         <div class="container">
-            <h1 class="header-heading">Array</h1>
+            <h1 class="heading">Array</h1>
         </div>
     </header>
 
@@ -26,6 +26,11 @@
     </section>
    
     <section>
+        <div class="container display-info">
+            <!-- display information on the arrray -->
+            <!-- array length array size -->
+        </div>
+
          <div class="container display-area">
             <!-- <div class="array-element index-0">31</div>
             <div class="array-element index-1">14</div> -->
@@ -36,24 +41,24 @@
         <div class="container buttons">
             <div class="button-group">
                 <form class="generate-array-form">
-                    <label for="generate-array">Generate array</label>
+                    <label for="generate-array">New random array</label>
                     <button id="generate-array" class="generate-array">Generate</button>
                 </form>
                 <form class="generate-sorted-array-form">
                     <label for="generate-sorted-array">Sort array</label>
-                    <button>Generate</button>
+                    <button>Sort</button>
                 </form>
             </div>
             <div class="button-group">
                 <form class="add-item-form">
-                    <label for="add-item-input">Add a number</label>
+                    <label for="add-item-input">Add a number <span>(1-100)</span></label>
                     <input type="text" name="add-item-input" class="add-item-input">
-                    <button type="submit" value="Add item" class="add-item-button">Add item</button>
+                    <button type="submit" value="Add item" class="add-item-button">Add</button>
                 </form>
                 <form class="delete-item-form">
-                    <label for="delete-item-input">Delete a number (index)</label>
+                    <label for="delete-item-input">Delete a number <span>(index)</span></label>
                     <input type="text" name="delete-item-input" class="delete-item-input">
-                    <button type="submit" value="Delete item" class="delete-item-button">Delete Item</button>
+                    <button type="submit" value="Delete item" class="delete-item-button">Delete</button>
                 </form>
             </div>
         </div>  

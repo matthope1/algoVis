@@ -32,6 +32,7 @@ $secondary: 'Roboto', sans-serif;
 body {
     background-color: white;
     color: $raisinBlack;
+    font-family: $secondary;
 }
 
 .container {
@@ -74,27 +75,25 @@ section {
     padding: 30px;
 } 
 
-p {
-    height: 100px;
-    width: 100px;
-    background-color: $medBlue;
-}
-
-div.array-element {
-    height: 42px;
-    width: 42px;
-    border-radius: 30px;
-    text-align: center;
-    font-size: 30px;
-    border-color: $raisinBlack;
-    margin: 10px;
+.array-element-box {
     display: inline-block;
-}
+    .array-element {
+        height: 42px;
+        width: 42px;
+        border-radius: 30px;
+        text-align: center;
+        font-size: 30px;
+        border-color: $raisinBlack;
+        margin: 10px;
+        display: inline-block;
+        font-size: 20px;
+        padding-top: 10px;
 
-div.array-element:hover {
-    color: white;
+        &:hover {
+            color: white;
+        }
+    }
 }
-
 
 .array-element {
     background-color: $lightSteelBlue;
@@ -132,6 +131,11 @@ div.array-element:hover {
         display: flex;
         justify-content: space-around;
         margin-bottom: 40px;
+    }
+
+    span {
+        font-size: 12px;
+        color: $grayWeb;
     }
 }
 
