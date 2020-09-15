@@ -1,6 +1,5 @@
 class array {
     constructor () {
-        // generate random numbers to be placed
         this.length = 0;
         this.data = [];
     }
@@ -9,7 +8,9 @@ class array {
 
     getElementAt(index){
         // check if index is within range
-        return data[index];
+        if (index >= 0 && index < this.length) {
+            return data[index];
+        }
     }
     
     setElementAt(index, value) {
@@ -65,7 +66,6 @@ class array {
             }
         }
 
-        // we didnt find the key return not found
         return -1;
     }
 
@@ -110,7 +110,6 @@ function removeRenderedArray() {
 
 function renderStoredArray(arr) {
     let arrayElement;
-    // first clear any array that is currently being displayd
 
     let arrayBox;
 
@@ -118,26 +117,21 @@ function renderStoredArray(arr) {
     // see if there's a better way of doing this
     // try to find alternate solution rather than making a ae box and the ae box seperately
 
+    // first clear the array that is currently being displayd
     $(`.array-element`).remove();
     $(".array-element-box").remove();
 
     for (let i = 0; i < arr.getLength(); i ++) {
-        // arrayElement = document.createElement("div");
-        // arrayElement.className = `array-element index-${i}`;
-        // arrayElement.innerHTML = arr.data[i];
-
         arrayBox = $("<div></div>").addClass("array-element-box");
         arrayElement = $("<h2></h2>").text(arr.data[i]).addClass(`array-element index-${i} grow`)
 
         // TODO NOT IMPORTANT:
         // add an animation for the display  
-        // $(".display-area").append(arrayElement);
         $(arrayBox).append(arrayElement, $(`<p>[${i}]</p>`));
 
         $(".display-area").append(arrayBox);
     }
 
-    // render info about the array into the array info section
 
     // remove any currently rendered infromation
     $(`.display-info`).empty();
@@ -151,12 +145,10 @@ function deleteItem(arr, index, callback) {
     // Delete items only when there's 1 or more elments
     if (arr.length > 0 && (index >= 0 && index < arr.length)) {
         //TODO:
-        // change this to use jquery instead of vjs dom manipulation
+        // change this to use jquery instead of js dom manipulation
         let arrayElement = document.createElement("div");
         arrayElement.innerHTML = $(`.array-element.index-${index}`).html();
 
-        // delete from rendered array
-        // $(`.array-element.index-${index}`).remove();
 
         // delete item from stored array
         arr.delete(index);
@@ -226,7 +218,6 @@ algoApp.init = () => {
         e.preventDefault();
         const value =  parseInt($(".add-item-input").val());
 
-        // console.log(value.length);
 
         if (typeof value != 'number') {
             alert("A number must be given!");
@@ -245,7 +236,6 @@ algoApp.init = () => {
         e.preventDefault();
         const value =  parseInt($(".delete-item-input").val());
 
-        // console.log("value: " + value); 
 
         if (typeof value != 'number') {
             alert("Index must be given");
@@ -273,14 +263,9 @@ algoApp.init = () => {
 
 $(document).ready(function(){
 
-    // console.log("document ready");
     
     algoApp.init();
 });
 
 
-
-
-//TODO #GENERAL
-// change functions to arrow syntax
 
