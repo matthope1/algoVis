@@ -272,6 +272,7 @@ button {
   color: #272932;
   border: none;
   border-radius: 50px;
+  margin-top: 10px;
 }
 
 button:hover {
@@ -350,16 +351,43 @@ section {
 }
 
 .user-input .container .button-group {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
   margin-bottom: 40px;
 }
 
 .user-input .container span {
   color: #828489;
+}
+
+.user-input .container form {
+  display: inline-block;
+  min-width: 200px;
+}
+
+.display-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.array-labels {
+  width: 10%;
+  padding-top: 10px;
+}
+
+.array-labels p {
+  text-align: right;
+}
+
+footer {
+  background-color: #4D7EA8;
+  padding: 7px 0;
+}
+
+footer p {
+  color: white;
+  margin: 0;
+  text-align: center;
+  font-size: 15px;
 }
 
 /* Portrait tablet and small desktops */

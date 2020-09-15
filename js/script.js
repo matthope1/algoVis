@@ -132,7 +132,7 @@ function renderStoredArray(arr) {
         // TODO NOT IMPORTANT:
         // add an animation for the display  
         // $(".display-area").append(arrayElement);
-        $(arrayBox).append(arrayElement, $(`<p>${i}</p>`));
+        $(arrayBox).append(arrayElement, $(`<p>[${i}]</p>`));
 
         $(".display-area").append(arrayBox);
     }
@@ -204,20 +204,12 @@ function addItem(arr,value,callback) {
 
         arrayBox = $("<div></div>").addClass("array-element-box");
 
-        arrayElement = $("<h2></h2>").text(elementToBeAdded).addClass(`array-element index-${arr.getLength() - 1}`);
+        arrayElement = $("<h2></h2>").text(elementToBeAdded).addClass(`array-element index-${arr.getLength() - 1} grow`);
 
-        $(arrayBox).append(arrayElement, $(`<p>${arr.getLength() - 1}</p>`));
+        $(arrayBox).append(arrayElement, $(`<p>[${arr.getLength() - 1}]</p>`));
 
         $(".display-area").append(arrayBox);
 
-        // //create the new div that will enclose the new array item
-        // arrayElement = document.createElement("div");
-        // // add class name based on the current length of the array
-        // arrayElement.className = `array-element index-${arr.length}`;
-        // // change the contents of the new div to the number given by the user
-        // arrayElement.innerHTML = elementToBeAdded;
-        // // add div to display container
-        // $(".display-area").append(arrayElement);
     }
 
 }
