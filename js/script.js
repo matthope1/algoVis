@@ -7,7 +7,6 @@ class array {
 
     getLength() {return this.length};
 
-
     getElementAt(index){
         // check if index is within range
         return data[index];
@@ -103,7 +102,6 @@ function generateRandomArray(callback) {
     return arr;
 }
 
-
 function removeRenderedArray() {
     $(`.array-element`).hide('slow', function() {
         $(`.array-element`).remove();
@@ -129,7 +127,7 @@ function renderStoredArray(arr) {
         // arrayElement.innerHTML = arr.data[i];
 
         arrayBox = $("<div></div>").addClass("array-element-box");
-        arrayElement = $("<h2></h2>").text(arr.data[i]).addClass(`array-element index-${i}`)
+        arrayElement = $("<h2></h2>").text(arr.data[i]).addClass(`array-element index-${i} grow`)
 
         // TODO NOT IMPORTANT:
         // add an animation for the display  
@@ -144,7 +142,7 @@ function renderStoredArray(arr) {
     // remove any currently rendered infromation
     $(`.display-info`).empty();
 
-    let infoElement = $("<h2></h2>").text("length" + arr.getLength()).addClass("info-element");
+    let infoElement = $("<h2></h2>").text("length of array: " + arr.getLength()).addClass("info-element");
     $(`.display-info`).append(infoElement);
 }
 
@@ -188,6 +186,7 @@ function addItem(arr,value,callback) {
     // fix this, it renders a div instead of an array box and array element
     //TODO:
     // add input handling
+    // dont let users add numbers more than 999 for styling reasons
     let arrayElement;
     let arrayBox;
 
@@ -195,6 +194,9 @@ function addItem(arr,value,callback) {
 
     if (arr.length >= 10) {
         alert("No more room in array!");
+    }
+    else if (value > 999 || value < 0) {
+        alert("Please enter a value from 0 to 999 inclusive");
     }
     else {
         // append to stored array
@@ -221,9 +223,6 @@ function addItem(arr,value,callback) {
 }
 
 const algoApp = {}
-
-
-
 
 algoApp.init = () => {
     
@@ -269,6 +268,13 @@ algoApp.init = () => {
     $(".generate-array-form").on('submit', (e) => {
         e.preventDefault();
         arr = generateRandomArray((arr) => { renderStoredArray(arr) });
+    });
+
+    $(".sort-array-form").on('submit', (e) => {
+           e.preventDefault();
+           console.log("called sort");
+           arr.sort();
+           renderStoredArray(arr);
     });
 
 }

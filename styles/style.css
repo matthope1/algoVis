@@ -315,6 +315,21 @@ section {
   text-align: center;
 }
 
+.display-info {
+  text-align: center;
+  font-size: 11px;
+}
+
+.grow {
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+.grow:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
 .user-input .container {
   width: 70%;
   max-width: 1500px;
@@ -344,7 +359,6 @@ section {
 }
 
 .user-input .container span {
-  font-size: 12px;
   color: #828489;
 }
 
