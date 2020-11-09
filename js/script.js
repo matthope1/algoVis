@@ -65,7 +65,6 @@ class array {
                 r = mid - 1;
             }
         }
-
         return -1;
     }
 
@@ -86,7 +85,7 @@ function generateRandomArray(callback) {
     while (i < 10) {
         let randomNum = Math.floor(Math.random() * 101);
 
-        if(arr.linearSearch(randomNum) == -1) {
+        if (arr.linearSearch(randomNum) == -1) {
             arr.append(randomNum);
             i++;
         }
@@ -154,29 +153,22 @@ function deleteItem(arr, index, callback) {
         if (typeof callback == "function") {
             callback(arr);
         }
-
-        // referenced this for the callback part
+        // referenced this
         // https://www.geeksforgeeks.org/how-to-create-a-custom-callback-in-javascript/#:~:text=All%20functions%20in%20JavaScript%20are,keyword%20as%20the%20last%20parameter.
-
     }
 
     else {
-        // TODO NON IMPORTANT: 
+        // TODO: 
         // change this from being an alert to a small pop up window that will go away
         // when the user clicks off of the pop up
         alert("There must be at least 1 item in array to perform deletion and the given index must be within range of the array length");
     }
-
-    
 }
 
 function addItem(arr,value,callback) {
     //TODO:
     // change alerts to pop up boxes?
     // fix this, it renders a div instead of an array box and array element
-    //TODO:
-    // add input handling
-    // dont let users add numbers more than 999 for styling reasons
     let arrayElement;
     let arrayBox;
 
@@ -203,13 +195,12 @@ const algoApp = {}
 algoApp.init = () => {
     
     let arr = new array();
-
     arr = generateRandomArray((arr) => { renderStoredArray(arr) });
+
     // add item
     $(".add-item-form").on("submit", (e) => {
         e.preventDefault();
         const value =  parseInt($(".add-item-input").val());
-
 
         if (typeof value != 'number') {
             alert("A number must be given!");
@@ -227,7 +218,6 @@ algoApp.init = () => {
     $(".delete-item-form").on("submit", (e) => {
         e.preventDefault();
         const value =  parseInt($(".delete-item-input").val());
-
 
         if (typeof value != 'number') {
             alert("Index must be given");
