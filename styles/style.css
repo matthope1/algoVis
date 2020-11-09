@@ -275,10 +275,6 @@ button {
   margin-top: 10px;
 }
 
-button:hover {
-  color: white;
-}
-
 section {
   padding: 30px;
 }
@@ -331,6 +327,10 @@ section {
           transform: scale(1.1);
 }
 
+.btn:hover {
+  color: white;
+}
+
 .user-input .container {
   width: 70%;
   max-width: 1500px;
@@ -363,6 +363,10 @@ section {
   min-width: 200px;
 }
 
+.user-input .container p {
+  margin: 0;
+}
+
 .display-section {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -371,11 +375,15 @@ section {
 
 .array-labels {
   width: 10%;
-  padding-top: 10px;
+  padding-top: 15px;
 }
 
 .array-labels p {
   text-align: right;
+}
+
+.deleted {
+  color: #9E90A2;
 }
 
 footer {

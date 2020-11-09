@@ -17,7 +17,7 @@
     </header>
 
     <section>
-        <div class="container info">
+        <div class="info container">
             <p>
                 An <a href="https://www.freecodecamp.org/news/data-structures-101-arrays-a-visual-introduction-for-beginners-7f013bcc355a/">Array</a>
                 is a data structure that stores a collection of elements.
@@ -29,47 +29,55 @@
                 Below is an interactive visual representation of an array using numbers.
                 Use the buttons to perform operations on the array.
             </p>
+            <p>
+                Element: refers to an item in the array
+            </p>
+            <p>
+                Index: A number that represents a position in the array
+            </p>
         </div>
     </section>
 
     <section>
-        <div class="container display-info">
+        <div class="display-info container">
             <!-- display information on the arrray -->
             <!-- array length array size -->
         </div>
     </section>
 
     <section class="display-section">
-        <div class="container array-labels">
+        <div class="array-labels container ">
             <p>Element: </p> 
             <p>Index: </p>
         </div>
-        <div class="container display-area">
+        <div class="display-area container">
         </div>
     </section>
 
     <section class="user-input">
-        <div class="container buttons">
+        <div class="buttons container">
             <div class="button-group">
                 <form class="generate-array-form">
-                    <label for="generate-array">New random array</label>
-                    <button id="generate-array" class="generate-array">Generate</button>
+                    <!-- <label for="generate-array">New random array</label> -->
+                    <p>New random array</p>
+                    <button id="generate-array" class="generate-array btn">Generate</button>
                 </form>
                 <form class="sort-array-form">
-                    <label for="sort-array-form">Sort array</label>
-                    <button id="sort-array-button" class="sort-array-button">Sort</button>
+                    <!-- <label for="sort-array-button">Sort array</label> -->
+                    <p>Sort Array</p>
+                    <button id="sort-array-button" class="sort-array-button btn">Sort</button>
                 </form>
             </div>
             <div class="button-group">
                 <form class="add-item-form">
                     <label for="add-item-input">Add a number <span>(1-100)</span></label>
                     <input type="text" name="add-item-input" class="add-item-input">
-                    <button type="submit" value="Add item" class="add-item-button">Add</button>
+                    <button type="submit" value="Add item" class="add-item-button btn">Add</button>
                 </form>
                 <form class="delete-item-form">
                     <label for="delete-item-input">Delete a number <span>(index)</span></label>
                     <input type="text" name="delete-item-input" class="delete-item-input">
-                    <button type="submit" value="Delete item" class="delete-item-button">Delete</button>
+                    <button type="submit" value="Delete item" class="delete-item-button btn">Delete</button>
                 </form>
             </div>
         </div>  
@@ -83,7 +91,7 @@
             <p>
         </div>
 
-        <div class="container display-area2">
+        <div class="container deleted display-area2">
         </div>
     </section>
   

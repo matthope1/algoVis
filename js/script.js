@@ -80,7 +80,7 @@ class array {
 
 function generateRandomArray(callback) {
     let arr = new array();
-    // generate 10 random numbers (range: 1 - 100) and append them onto array
+    // generate 10 random numbers (range: 1 - 100) and append them onto stored array
     let i = 0;
 
     while (i < 10) {
@@ -149,6 +149,9 @@ function deleteItem(arr, index, callback) {
         let arrayElement = document.createElement("div");
         arrayElement.innerHTML = $(`.array-element.index-${index}`).html();
 
+        // let arrayElement = $("div");
+        // arrayElement.text($(`.array-element.index-${index}`).html());
+        // arrayElement.addClass("deleted");
 
         // delete item from stored array
         arr.delete(index);
@@ -158,6 +161,10 @@ function deleteItem(arr, index, callback) {
         if (typeof callback == "function") {
             callback(arr);
         }
+
+        // referenced this for the callback part
+        // https://www.geeksforgeeks.org/how-to-create-a-custom-callback-in-javascript/#:~:text=All%20functions%20in%20JavaScript%20are,keyword%20as%20the%20last%20parameter.
+
     }
 
     else {
@@ -167,9 +174,7 @@ function deleteItem(arr, index, callback) {
         alert("There must be at least 1 item in array to perform deletion and the given index must be within range of the array length");
     }
 
-    // referenced this for the callback part
-    // https://www.geeksforgeeks.org/how-to-create-a-custom-callback-in-javascript/#:~:text=All%20functions%20in%20JavaScript%20are,keyword%20as%20the%20last%20parameter.
-
+    
 }
 
 function addItem(arr,value,callback) {
