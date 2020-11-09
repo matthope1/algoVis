@@ -113,7 +113,7 @@ function renderStoredArray(arr) {
 
     let arrayBox;
 
-    //todo:
+    //TODO:
     // see if there's a better way of doing this
     // try to find alternate solution rather than making a ae box and the ae box seperately
 
@@ -125,13 +125,10 @@ function renderStoredArray(arr) {
         arrayBox = $("<div></div>").addClass("array-element-box");
         arrayElement = $("<h2></h2>").text(arr.data[i]).addClass(`array-element index-${i} grow`)
 
-        // TODO NOT IMPORTANT:
-        // add an animation for the display  
         $(arrayBox).append(arrayElement, $(`<p>[${i}]</p>`));
 
         $(".display-area").append(arrayBox);
     }
-
 
     // remove any currently rendered infromation
     $(`.display-info`).empty();
@@ -145,13 +142,9 @@ function deleteItem(arr, index, callback) {
     // Delete items only when there's 1 or more elments
     if (arr.length > 0 && (index >= 0 && index < arr.length)) {
         //TODO:
-        // change this to use jquery instead of js dom manipulation
+        // change this to use jquery instead of vanil js dom manipulation
         let arrayElement = document.createElement("div");
         arrayElement.innerHTML = $(`.array-element.index-${index}`).html();
-
-        // let arrayElement = $("div");
-        // arrayElement.text($(`.array-element.index-${index}`).html());
-        // arrayElement.addClass("deleted");
 
         // delete item from stored array
         arr.delete(index);
@@ -198,17 +191,11 @@ function addItem(arr,value,callback) {
     else {
         // append to stored array
         arr.append(elementToBeAdded);
-
         arrayBox = $("<div></div>").addClass("array-element-box");
-
         arrayElement = $("<h2></h2>").text(elementToBeAdded).addClass(`array-element index-${arr.getLength() - 1} grow`);
-
         $(arrayBox).append(arrayElement, $(`<p>[${arr.getLength() - 1}]</p>`));
-
         $(".display-area").append(arrayBox);
-
     }
-
 }
 
 const algoApp = {}
@@ -232,8 +219,8 @@ algoApp.init = () => {
             addItem(arr, value);
             //clearing the input
             $(".add-item-input").val("");
+            renderStoredArray(arr);
         }
-
     });
 
     // delete item
@@ -263,12 +250,9 @@ algoApp.init = () => {
            arr.sort();
            renderStoredArray(arr);
     });
-
 }
 
 $(document).ready(function(){
-
-    
     algoApp.init();
 });
 

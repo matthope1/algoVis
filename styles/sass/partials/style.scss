@@ -19,7 +19,6 @@ $lightSteelBlue: #B6C2D9;
 $primary: 'Domine', serif;
 $secondary: 'Roboto', sans-serif;
 
-
 //styling
 body {
     background-color: white;
@@ -59,10 +58,6 @@ button {
     border-radius: 50px;
     margin-top: 10px;
 }
-
-// button:hover {
-//     color: white;
-// }
 
 section {
     padding: 30px;
@@ -184,8 +179,6 @@ footer {
         font-size: 15px;
     }
 }
-
-//media q
 
 /* Portrait tablet and small desktops */
 @media (max-width: 940px) {
